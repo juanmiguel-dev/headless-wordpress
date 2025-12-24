@@ -30,7 +30,7 @@ export default function Portfolio({ posts }: PortfolioProps) {
                     </p>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {posts.map((post) => (
                         <div
                             key={post.id}
