@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   // 2. Títulos y Descripciones por defecto
   title: {
     default: "Juan Miguel Rivero y Hornos | Headless WordPress Architect",
-    template: "%s | Pachadev Portfolio",
+    template: "Pachadev NextJs",
   },
-  description: "Especialista en Headless WordPress y Next.js. Desarrollo arquitecturas web escalables, seguras y de alto rendimiento para agencias y clientes globales.",
+  description: "Headless WordPress & Next.js. Desarrollo arquitecturas web escalables, seguras y de alto rendimiento para agencias y clientes globales.",
 
   // 3. Open Graph (Para cómo se ve al compartir en LinkedIn/WhatsApp)
   openGraph: {
     title: "Juan Miguel Rivero y Hornos | Headless WordPress Architect",
-    description: "Portfolio técnico de desarrollo JAMstack con Next.js 15 y WPGraphQL.",
+    description: "Portfolio técnico de desarrollo JAMstack con Next.js y WPGraphQL.",
     url: "https://next.pachadev.com",
     siteName: "Pachadev Portfolio",
     locale: "es_AR",
