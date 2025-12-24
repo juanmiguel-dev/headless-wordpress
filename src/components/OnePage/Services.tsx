@@ -7,7 +7,7 @@ export default function Services() {
 
                     {/* Left Column: Heading */}
                     <div className="relative">
-                        <h2 className="text-6xl font-black uppercase tracking-tighter text-white sm:text-3xl leading-none">
+                        <h2 className="text-4xl font-black uppercase tracking-tighter text-white sm:text-3xl leading-none">
                             Arquitectura <br />
                             <span className="font-thin font-serif italic text-white/90">Digital</span>
                         </h2>
