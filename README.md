@@ -2,7 +2,7 @@
 
 This is an example on how you can build a Next.js 14 project (with App Router), using [WordPress](https://wordpress.org) as the data source.
 
-## Key features:
+## Key features: s
 
 - `robots.ts`: This automatically gets the robots.txt of the API route and serves it on the `/robots.txt` route.
 - `sitemap.ts`: This automatically gets all paths from the API and generates a sitemap to serve on the `/sitemap.xml` route.
