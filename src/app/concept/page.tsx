@@ -22,7 +22,7 @@ export default function ConceptPage() {
                         playsInline
                         preload="metadata" // ⬅️ CRÍTICO: Solo carga metadatos, no el video completo
                         className="object-cover w-full h-full brightness-75"
-                        poster="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
+                        poster="https://v2.pachadev.com/wp-content/uploads/2025/12/back-black.webp?q=80&w=2070&auto=format&fit=crop"
                     >
                         {/* Siempre ofrecer WebM primero (más ligero) */}
                         <source
@@ -46,10 +46,10 @@ export default function ConceptPage() {
                 </div>
                 <div className="relative z-10 text-center text-white px-4">
                     <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-4">
-                        The Future of Living
+                        Lighter & Powerfull
                     </p>
                     <h1 className="text-5xl md:text-8xl font-serif italic tracking-tight mb-8">
-                        Nomad <br className="md:hidden" /> Spirit
+                        NextJs + <br className="md:hidden" /> WordPress
                     </h1>
                     <Link
                         href="#explore"
@@ -64,7 +64,7 @@ export default function ConceptPage() {
             <section id="explore" className="py-24 px-6 md:px-12 max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-light leading-snug text-gray-800">
                     "Redefining freedom through exceptional engineering and timeless design.
-                    A home that moves with you."
+                    Speed and Power."
                 </h2>
             </section>
 
