@@ -24,13 +24,13 @@ export default function Portfolio({ posts }: PortfolioProps) {
         <section id="portfolio" className="bg-dark-bg py-24 text-white border-t border-gray-900">
             <div className="container mx-auto px-6">
                 <div className="mb-16 text-center">
-                    <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Our Work</h2>
+                    <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">KeyPoints</h2>
                     <p className="mt-4 text-lg text-slate-400">
-                        Check out our latest projects and updates.
+                        Tech Stack & Tools
                     </p>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
                     {posts.map((post) => (
                         <div
                             key={post.id}
