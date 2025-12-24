@@ -51,6 +51,7 @@ export default function Services() {
                     </div>
                 </div>
             </div>
+            <TechStack />
         </section>
     );
 }
