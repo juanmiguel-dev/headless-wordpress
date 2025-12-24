@@ -55,7 +55,7 @@ export default function ConceptPage() {
                     {/* Card Grande Izquierda */}
                     <div className="md:col-span-8 relative group overflow-hidden rounded-2xl h-[500px] md:h-full">
                         <Image
-                            src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=2070&auto=format&fit=crop"
+                            src="https://v2.pachadev.com/wp-content/uploads/2025/12/Neon_text_effect.jpg?q=80&w=2070&auto=format&fit=crop"
                             alt="Interior"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -72,7 +72,7 @@ export default function ConceptPage() {
                         {/* Card Superior Derecha */}
                         <div className="flex-1 relative group overflow-hidden rounded-2xl min-h-[300px]">
                             <Image
-                                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
+                                src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta-mobile-view.jpg?q=80&w=2021&auto=format&fit=crop"
                                 alt="Travel"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
