@@ -7,8 +7,10 @@ loadEnvConfig(projectDir);
 const config: CodegenConfig = {
   overwrite: true,
   schema: {
-    // Usa la variable de entorno o el fallback local
-    [process.env.WORDPRESS_GRAPHQL_ENDPOINT || "http://headless-backend.local/graphql"]: {
+    // LÓGICA SENIOR:
+    // 1. Intenta usar la variable de entorno (para Vercel)
+    // 2. Si no existe, usa tu dirección local (para tu PC)
+    [`${process.env.WORDPRESS_API_URL || "http://headless-backend.local/graphql"}`]: {
       headers: {
         "User-Agent": "Codegen",
       },
