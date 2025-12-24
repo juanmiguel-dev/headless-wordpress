@@ -15,13 +15,13 @@ export default function Hero() {
                 </div>
 
                 <h1 className="text-2xl font-black uppercase tracking-tighter text-white sm:text-7xl md:text-3xl leading-[0.9]">
-                    Headless Architect (Next.js + WPGraphQL)<br />
+                    Headless Architect (Next.js + WPGraphQL)<br /><br />
                     <span className="block text-white">Building High-Performance Web Experiences. </span>
 
                 </h1>
 
                 <p className="mx-auto max-w-3xl text-md font-medium text-gray-400 sm:text-xl leading-relaxed">
-                    Development of a high-performance web platform by decoupling the frontend from the backend to maximize Core Web Vitals and security.
+                    Development of a high-performance web platform by decoupling the frontend from the backend to maximize Core Web Vitals and user experience.
                 </p>
 
                 <div className="pt-8">

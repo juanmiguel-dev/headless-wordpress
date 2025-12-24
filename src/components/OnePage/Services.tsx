@@ -9,7 +9,7 @@ export default function Services() {
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-start">
 
                     {/* Left Column: Heading */}
-                    <div className="relative sticky top-10">
+                    <div className="relative top-10">
                         <h2 className="text-4xl font-black uppercase tracking-tighter text-white sm:text-5xl leading-none">
                             Digital <br />
                             <span className="font-thin font-serif italic text-blue-400">

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: "Juan Miguel Rivero y Hornos | Headless WordPress Architect",
     template: "Pachadev NextJs",
   },
-  description: "Headless WordPress & Next.js. Desarrollo arquitecturas web escalables, seguras y de alto rendimiento para agencias y clientes globales.",
+  description: "Headless WordPress & Next.js. Desarrollo de arquitecturas web escalables, seguras y de alto rendimiento, para agencias y clientes globales.",
 
   // 3. Open Graph (Para cómo se ve al compartir en LinkedIn/WhatsApp)
   openGraph: {
