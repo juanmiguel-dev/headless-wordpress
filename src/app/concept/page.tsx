@@ -16,7 +16,7 @@ export default function ConceptPage() {
                 {/* Imagen de fondo (Simulando el estilo VanLife) */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://v2.pachadev.com/wp-content/uploads/2025/12/2396-Grande.jpg?q=80&w=2070&auto=format&fit=crop"
+                        src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
                         alt="Hero Background"
                         fill
                         className="object-cover brightness-75"
