@@ -14,16 +14,36 @@ export default function ConceptPage() {
             {/* 1. HERO SECTION (Estilo Video/Imagen Full Screen) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
                 {/* Imagen de fondo (Simulando el estilo VanLife) */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
-                        alt="Hero Background"
-                        fill
-                        className="object-cover brightness-75"
-                        priority
-                    />
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata" // ⬅️ CRÍTICO: Solo carga metadatos, no el video completo
+                        className="object-cover w-full h-full brightness-75"
+                        poster="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
+                    >
+                        {/* Siempre ofrecer WebM primero (más ligero) */}
+                        <source
+                            src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.webm"
+                            type="video/webm"
+                        />
+                        {/* Fallback MP4 para Safari */}
+                        <source
+                            src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.mp4"
+                            type="video/mp4"
+                        />
+                        {/* Fallback final: si el video no carga, muestra la imagen */}
+                        <Image
+                            src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
+                            alt="Hero Background"
+                            fill
+                            className="object-cover brightness-75"
+                            priority
+                        />
+                    </video>
                 </div>
-
                 <div className="relative z-10 text-center text-white px-4">
                     <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-4">
                         The Future of Living
