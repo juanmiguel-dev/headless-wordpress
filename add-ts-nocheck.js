@@ -1,20 +1,17 @@
 const fs = require("fs");
 
-const generatedFilePath = "src/gql/gql.ts";
+const files = ["src/gql/gql.ts", "src/gql/graphql.ts"];
 
-fs.readFile(generatedFilePath, "utf8", (err, data) => {
-  if (err) {
-    console.error("Error reading file:", err);
-    return;
-  }
-
-  const updatedContent = `// @ts-nocheck\n${data}`;
-
-  fs.writeFile(generatedFilePath, updatedContent, "utf8", (err) => {
-    if (err) {
-      console.error("Error writing file:", err);
-    } else {
-      console.log(`Added "// @ts-nocheck" to ${generatedFilePath}`);
+files.forEach((filePath) => {
+  if (fs.existsSync(filePath)) {
+    const data = fs.readFileSync(filePath, "utf8");
+    if (!data.includes("// @ts-nocheck")) {
+      const updatedContent = `// @ts-nocheck\n${data}`;
+      fs.writeFileSync(filePath, updatedContent, "utf8");
+      console.log(`Added "// @ts-nocheck" to ${filePath}`);
     }
-  });
+  } else {
+    console.warn(`File not found: ${filePath}`);
+  }
 });
+
