@@ -25,7 +25,7 @@ export async function fetchGraphQL<T = any>(
     });
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/graphql`,
+      process.env.WORDPRESS_GRAPHQL_ENDPOINT || `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/graphql`,
       {
         method: "POST",
         headers: {
