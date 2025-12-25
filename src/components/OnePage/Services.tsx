@@ -3,7 +3,7 @@ import ParallaxSection from "../Globals/Parallax/ParallaxSection";
 
 export default function Services() {
     return (
-        <section id="services" className="bg-gray-900 py-32 border-t border-gray-800">
+        <section id="services" className="bg-black py-32 border-t">
             <ParallaxSection speed={0.4}>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-24">
                     <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-start">
