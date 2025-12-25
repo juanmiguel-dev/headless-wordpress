@@ -48,7 +48,7 @@ const Phone3D = () => {
                 </span>
             </div>
 
-            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="container mx-auto px-6 max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center justify-items-center">
 
                 {/* Left Side: Content */}
                 <div className="relative z-10">
@@ -79,9 +79,11 @@ const Phone3D = () => {
                     {/* Industrial Device Housing */}
                     <div
                         ref={phoneRef}
-                        className="relative w-[280px] h-[580px] bg-[#0c0c0c] rounded-[4rem] border-[12px] border-[#1a1a1a] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden"
+                        className="relative w-[280px] h-[580px] bg-[#0c0c0c] rounded-[4rem] border-[12px] border-[#1a1a1a] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8),0_0_20px_-5px_rgba(223,255,0,0.1)] hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.9),0_0_30px_-5px_rgba(223,255,0,0.2)] transition-shadow duration-700 overflow-hidden"
                         style={{ transformStyle: "preserve-3d" }}
                     >
+                        {/* Industrial Neon Rim */}
+                        <div className="absolute inset-0 border border-neon-lime/20 rounded-[3.2rem] pointer-events-none z-30" />
                         {/* Screen Shadow inner */}
                         <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] z-20 pointer-events-none" />
 
