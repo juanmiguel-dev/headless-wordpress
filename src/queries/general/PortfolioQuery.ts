@@ -16,6 +16,11 @@ export const PortfolioQuery = gql`
             altText
           }
         }
+        categories {
+          nodes {
+            name
+          }
+        }
       }
     }
   }
