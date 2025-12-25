@@ -12,7 +12,12 @@ export default function Header() {
 
             <div className={styles.navWrapper}>
                 <Navigation />
-                <Link href="/contact" className={styles.ctaButton}>
+                <Link
+                    href="https://wa.me/5492235451872"
+                    className={styles.ctaButton}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     Let's Talk
                 </Link>
             </div>
