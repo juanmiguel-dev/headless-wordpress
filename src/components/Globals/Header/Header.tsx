@@ -1,26 +1,44 @@
 import Link from "next/link";
+import { print } from "graphql/language/printer";
+import gql from "graphql-tag";
+import { fetchGraphQL } from "@/utils/fetchGraphQL";
+import { MenuItem, RootQueryToMenuItemConnection } from "@/gql/graphql";
+
 import styles from "./Header.module.css";
 import Navigation from "../Navigation/Navigation";
+import HeaderClient from "./HeaderClient";
 
-export default function Header() {
+async function getData() {
+    const menuQuery = gql`
+    query MenuQuery {
+      menuItems(where: { location: MENU_1 }) {
+        nodes {
+          uri
+          target
+          label
+        }
+      }
+    }
+  `;
+
+    const { menuItems } = await fetchGraphQL<{
+        menuItems: RootQueryToMenuItemConnection;
+    }>(print(menuQuery));
+
+    if (menuItems === null) {
+        return { nodes: [] };
+    }
+
+    return menuItems;
+}
+
+export default async function Header() {
+    const menuItems = await getData();
+    const nodes = (menuItems.nodes as MenuItem[] || []).filter((item): item is MenuItem => !!item && !!item.uri && !!item.label);
+
     return (
-        <header className={styles.header}>
-            <Link href="/" className={styles.logoContainer}>
-                <span className={styles.logoText}>PACHADEV</span>
-                <div className={styles.logoDot}></div>
-            </Link>
-
-            <div className={styles.navWrapper}>
-                <Navigation />
-                <Link
-                    href="https://wa.me/5492235451872"
-                    className={styles.ctaButton}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Let's Talk
-                </Link>
-            </div>
-        </header>
+        <HeaderClient menuItems={nodes}>
+            <Navigation />
+        </HeaderClient>
     );
 }
