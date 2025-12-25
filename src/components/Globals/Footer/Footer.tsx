@@ -9,11 +9,10 @@ const Footer = () => {
                 <div className={styles.topSection}>
                     <div className={styles.brand}>
                         <Link
-                            href="https://pachadev.com/"
-                            target="_blank"
+                            href="/"
                             className={styles.socialLink}
                         >
-                            Pachadev Architecture
+                            Daniela Moreno Art
                             <span className={styles.dot} />
                         </Link>
 
@@ -21,15 +20,15 @@ const Footer = () => {
 
                     <div className={styles.socials}>
                         <Link
-                            href="https://www.linkedin.com/in/juan-miguel-rivero-y-hornos/"
+                            href="https://www.instagram.com/danimoreno_psicomar"
                             target="_blank"
                             className={styles.socialLink}
                         >
-                            LinkedIn
+                            Instagram
                             <span className={styles.dot} />
                         </Link>
                         <Link
-                            href="https://wa.me/5492235451872"
+                            href="https://wa.me/5492235438139"
                             target="_blank"
                             className={styles.socialLink}
                         >

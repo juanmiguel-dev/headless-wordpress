@@ -24,8 +24,8 @@ export default function HeaderClient({
             <header className={styles.header}>
                 <Link href="/" className={styles.logoContainer}>
                     <Image
-                        src="https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp"
-                        alt="Pachadev Logo"
+                        src="/logo.png"
+                        alt="Daniela Moreno Logo"
                         width={140}
                         height={40}
                         className={styles.logoImage}
@@ -37,7 +37,7 @@ export default function HeaderClient({
                 <div className={styles.navWrapper}>
                     {children}
                     <Link
-                        href="https://wa.me/5492235451872"
+                        href="https://wa.me/5492235438139"
                         className={styles.ctaButton}
                         target="_blank"
                         rel="noopener noreferrer"

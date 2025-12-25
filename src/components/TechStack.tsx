@@ -94,7 +94,7 @@ const TechStack = () => {
                         </h2>
                     </div>
                     <p className="text-gray-500 font-light max-w-sm text-right text-sm leading-relaxed mb-4 border-r border-neon-lime/30 pr-8">
-                        Engineering scalable digital ecosystems with a focused, performance-first technical architecture.
+                        Curating a specialized creative workflow with a focus on visual impact and digital performance.
                     </p>
                 </div>
 

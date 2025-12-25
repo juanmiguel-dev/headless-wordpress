@@ -13,21 +13,21 @@ const inter = Inter({ subsets: ["latin"] });
 // --- CONFIGURACIÓN SEO GLOBAL ---
 export const metadata: Metadata = {
   // 1. URL Base: Soluciona el error de "Canonical URL undefined"
-  metadataBase: new URL("https://next.pachadev.com"),
+  metadataBase: new URL("https://danielamoreno.art"),
 
   // 2. Títulos y Descripciones por defecto
   title: {
-    default: "Juan Miguel Rivero y Hornos | Headless WordPress Architect",
-    template: "Pachadev NextJs",
+    default: "Daniela Moreno | Digital Artist & Creative Director",
+    template: "%s | Daniela Moreno Art",
   },
-  description: "Headless WordPress & Next.js. Desarrollo de arquitecturas web escalables, seguras y de alto rendimiento, para agencias y clientes globales.",
+  description: "Digital Art & Creative Direction. Exploration of visual narratives and digital evolution.",
 
   // 3. Open Graph (Para cómo se ve al compartir en LinkedIn/WhatsApp)
   openGraph: {
-    title: "Juan Miguel Rivero y Hornos | Headless WordPress Architect",
-    description: "Portfolio técnico de desarrollo JAMstack con Next.js y WPGraphQL.",
-    url: "https://next.pachadev.com",
-    siteName: "Pachadev Portfolio",
+    title: "Daniela Moreno | Digital Artist & Creative Director",
+    description: "Portfolio de arte digital y dirección creativa.",
+    url: "https://danielamoreno.art",
+    siteName: "Daniela Moreno Art",
     locale: "es_AR",
     type: "website",
   },
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
 
   // 5. Icons
   icons: {
-    icon: "https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp",
-    shortcut: "https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp",
-    apple: "https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

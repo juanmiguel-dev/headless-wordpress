@@ -57,7 +57,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
             transition={{ duration: 0.8 }}
             className={styles.metaLabel}
           >
-            Digital / Architecture / Archive
+            Art / Creative / Archive
           </motion.span>
 
           <motion.h1
@@ -86,7 +86,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
             </div>
             <div className={styles.metaItem}>
               <span className={styles.itemLabel}>AUTH_CORE</span>
-              <span className={styles.itemValue}>Juan Miguel</span>
+              <span className={styles.itemValue}>Daniela Moreno</span>
             </div>
           </motion.div>
         </div>
@@ -112,7 +112,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
       {/* 3. FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerText}>
-          Pachadev Terminal // End of Entry
+          Daniela Moreno Art // End of Entry
         </div>
       </footer>
     </article>
