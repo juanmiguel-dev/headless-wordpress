@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Post {
     id: string;
@@ -21,57 +24,106 @@ interface PortfolioProps {
 
 export default function Portfolio({ posts }: PortfolioProps) {
     return (
-        <section id="portfolio" className="bg-dark-bg py-24 text-white border-t border-gray-900">
-            <div className="container mx-auto px-6">
-                <div className="mb-16 text-center">
-                    <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">KeyPoints</h2>
-                    <p className="mt-4 text-lg text-slate-400">
-                        Tech Stack & Tools
+        <section id="portfolio" className="bg-black py-40 border-t border-white/5 relative overflow-hidden">
+            {/* Background Ornaments */}
+            <div className="absolute top-1/4 left-10 w-px h-64 bg-gradient-to-b from-transparent via-neon-lime/20 to-transparent opacity-50" />
+            <div className="absolute bottom-1/4 right-10 w-px h-64 bg-gradient-to-t from-transparent via-neon-lime/20 to-transparent opacity-50" />
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="mb-24 flex flex-col md:flex-row items-end justify-between gap-8">
+                    <div>
+                        <span className="text-neon-lime font-mono text-xs uppercase tracking-[0.5em] mb-4 block">Archive / 025</span>
+                        <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
+                            PROJECTS<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/20 italic font-serif lowercase font-light ml-4">Selected.</span>
+                        </h2>
+                    </div>
+                    <p className="text-gray-500 font-light max-w-xs text-right text-sm leading-relaxed mb-4">
+                        A curated selection of performance-first architectures and digital ecosystems.
                     </p>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {posts.map((post) => (
-                        <div
+                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-2">
+                    {posts.map((post, index) => (
+                        <motion.div
                             key={post.id}
-                            className="group relative overflow-hidden rounded-none border border-gray-800 bg-gray-900/50 transition-all hover:border-neon-lime hover:shadow-[0_0_20px_rgba(223,255,0,0.2)]"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="group relative flex flex-col bg-white/[0.02] border border-white/5 rounded-sm overflow-hidden"
                         >
-                            {/* Image */}
-                            <div className="relative h-64 w-full overflow-hidden">
-                                {post.featuredImage?.node?.sourceUrl ? (
-                                    <Image
-                                        src={post.featuredImage.node.sourceUrl}
-                                        alt={post.featuredImage.node.altText || post.title}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        unoptimized={true}
-                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                ) : (
-                                    <div className="flex h-full w-full items-center justify-center bg-slate-700">
-                                        <span className="text-slate-500">No Image</span>
-                                    </div>
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-80" />
+                            {/* Card Header / Metadata */}
+                            <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.01]">
+                                <div className="flex items-center gap-4">
+                                    <span className="text-[10px] font-mono text-neon-lime opacity-50 uppercase tracking-widest">Post ID: {post.id.slice(0, 8)}</span>
+                                    <span className="h-1 w-1 rounded-full bg-white/20" />
+                                    <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">{new Date(post.date).getFullYear()}</span>
+                                </div>
+                                <div className="flex gap-1">
+                                    <div className="w-1 h-1 rounded-full bg-neon-lime/40" />
+                                    <div className="w-1 h-1 rounded-full bg-white/10" />
+                                </div>
                             </div>
 
-                            {/* Content */}
-                            <div className="p-6">
-                                <div className="mb-3 flex items-center gap-2 text-sm text-neon-lime font-mono">
-                                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                            <div className="flex flex-col md:flex-row flex-1 min-h-[350px]">
+                                {/* Image Container */}
+                                <div className="relative w-full md:w-1/2 overflow-hidden bg-black border-r border-white/5">
+                                    {post.featuredImage?.node?.sourceUrl ? (
+                                        <Image
+                                            src={post.featuredImage.node.sourceUrl}
+                                            alt={post.featuredImage.node.altText || post.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            unoptimized={true}
+                                            className="object-cover opacity-60 grayscale transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-white/[0.02]">
+                                            <span className="text-[10px] font-mono text-gray-700 uppercase tracking-tighter">no_visual_data</span>
+                                        </div>
+                                    )}
+                                    {/* Blueprint Overlay */}
+                                    <div className="absolute inset-0 bg-[linear-gradient(rgba(223,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(223,255,0,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                                 </div>
-                                <h3 className="mb-3 text-2xl font-black uppercase leading-tight group-hover:text-neon-lime text-white transition-colors">
-                                    <Link href={`/${post.slug}`}>
-                                        <span className="absolute inset-0" />
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                                <div
-                                    className="line-clamp-3 text-gray-400 text-sm font-light leading-relaxed"
-                                    dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                                />
+
+                                {/* Content Container */}
+                                <div className="p-10 flex-1 flex flex-col justify-between relative">
+                                    {/* Glitch Title */}
+                                    <div>
+                                        <h3 className="text-3xl font-black uppercase tracking-tighter text-white mb-6 leading-[0.9] group-hover:text-neon-lime transition-colors duration-300">
+                                            <Link href={`/${post.slug}`}>
+                                                {post.title}
+                                            </Link>
+                                        </h3>
+                                        <div
+                                            className="text-gray-500 text-sm font-light leading-relaxed mb-8 line-clamp-3"
+                                            dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                                        />
+                                    </div>
+
+                                    {/* Card Footer */}
+                                    <div className="flex items-center justify-between mt-auto">
+                                        <Link
+                                            href={`/${post.slug}`}
+                                            className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 hover:text-neon-lime transition-all flex items-center gap-2 group/btn"
+                                        >
+                                            View Entry <span className="group-hover/btn:translate-x-1 transition-transform text-neon-lime">→</span>
+                                        </Link>
+                                        <span className="text-[8px] font-mono text-white/10 uppercase tracking-widest hidden md:block select-none">
+                                            0x{index.toString(16).padStart(2, '0')} // ARCHIVE_0{index + 1}
+                                        </span>
+                                    </div>
+
+                                    {/* Hover Decorative Corner */}
+                                    <div className="absolute bottom-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <div className="absolute bottom-4 right-4 w-4 h-[1px] bg-neon-lime" />
+                                        <div className="absolute bottom-4 right-4 h-4 w-[1px] bg-neon-lime" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
