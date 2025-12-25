@@ -1,33 +1,39 @@
+import Link from "next/link";
 import HeroBackground from "./HeroBackground";
 import ParallaxSection from "../Globals/Parallax/ParallaxSection";
 
 export default function Hero() {
     return (
-        <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-dark-bg px-6 py-24 text-center">
+        <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 py-24 text-center">
             {/* Background Effects */}
             <HeroBackground />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900/40 via-dark-bg/80 to-dark-bg opacity-90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black z-1" />
 
             <ParallaxSection speed={0.2}>
-                <div className="relative z-10 max-w-5xl space-y-12">
-                    {/* Logo/Icon Placeholder if needed */}
-                    <div className="mx-auto w-12 h-12 mb-8">
-                        {/* Can place logo here */}
-                    </div>
-
-                    <h1 className="text-2xl font-black uppercase tracking-tighter text-white sm:text-7xl md:text-3xl leading-[0.9]">
-                        Headless Architect (Next.js + WPGraphQL)<br /><br />
-                        <span className="block text-white">Building High-Performance Web Experiences. </span>
-
-                    </h1>
-
-                    <p className="mx-auto max-w-3xl text-md font-medium text-gray-400 sm:text-xl leading-relaxed">
-                        Development of a high-performance web platform by decoupling the frontend from the backend to maximize Core Web Vitals and user experience.
+                <div className="relative z-10 max-w-5xl px-4">
+                    <p className="text-xs md:text-sm tracking-[0.5em] uppercase mb-8 opacity-60 font-mono text-neon-lime">
+                        Digital Engineering / Headless Architect
                     </p>
 
-                    <div className="pt-8">
-                        {/* Optional: Add a subtle scroll indicator or simple separator */}
-                        <div className="mx-auto h-1 w-24 bg-neon-lime/50 rounded-full" />
+                    <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-white">
+                        DESIGN<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/40 italic font-serif lowercase font-light ml-4">evolution.</span>
+                    </h1>
+
+                    <p className="mx-auto max-w-2xl text-gray-400 text-lg md:text-xl leading-relaxed font-light mt-12">
+                        Deconstructing the traditional web. Building high-performance
+                        ecosystems with <span className="text-white font-medium">Next.js</span> + <span className="text-white font-medium">WordPress</span>.
+                    </p>
+
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-16">
+                        <div className="h-px w-12 bg-neon-lime/30 hidden md:block" />
+                        <Link
+                            href="#services"
+                            className="text-xs uppercase tracking-[0.3em] font-bold text-white hover:text-neon-lime transition-colors"
+                        >
+                            Explore Expertise
+                        </Link>
+                        <div className="h-px w-12 bg-neon-lime/30 hidden md:block" />
                     </div>
                 </div>
             </ParallaxSection>

@@ -3,72 +3,58 @@ import ParallaxSection from "../Globals/Parallax/ParallaxSection";
 
 export default function Services() {
     return (
-        <section id="services" className="bg-black py-32 border-t">
-            <ParallaxSection speed={0.4}>
-                <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-24">
-                    <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-start">
+        <section id="services" className="bg-black py-40 relative overflow-hidden">
+            {/* Background Accent */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-lime/5 blur-[120px] pointer-events-none" />
 
-                        {/* Left Column: Heading */}
-                        <div className="relative top-10">
-                            <h2 className="text-4xl font-black uppercase tracking-tighter text-white sm:text-5xl leading-none">
-                                Digital <br />
-                                <span className="font-thin font-serif italic text-blue-400">
-                                    Architecture
-                                </span>
+            <ParallaxSection speed={0.4}>
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+                        {/* Title Column */}
+                        <div className="lg:col-span-12 mb-20">
+                            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
+                                CORE<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/20 italic font-serif lowercase font-light">expertise.</span>
                             </h2>
-                            <div className="mt-8 h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500" />
-                            <p className="mt-6 text-gray-400 text-lg max-w-md">
-                                I don't just build websites; I engineer scalable ecosystems.
-                                Bridging the gap between marketing needs and technical performance.
-                            </p>
                         </div>
 
-                        {/* Right Column: Content */}
-                        <div className="space-y-16">
-                            {/* Service Item 1 */}
-                            <div className="group">
-                                <div className="flex items-baseline gap-4 mb-4">
-                                    <span className="text-blue-500 font-mono text-xl font-bold">01</span>
-                                    <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
-                                        Discovery & Strategy
-                                    </h3>
-                                </div>
-                                <p className="text-gray-400 leading-relaxed pl-10 border-l border-gray-800 group-hover:border-blue-500/50 transition-colors">
-                                    It starts with the "why". I analyze your business logic and technical requirements to develop a strategic blueprint. This roadmap ensures that every line of code serves a business goal.
+                        {/* Interactive Grid */}
+                        <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-sm overflow-hidden">
+                            {/* Service 1 */}
+                            <div className="bg-black p-12 hover:bg-white/[0.02] transition-colors group">
+                                <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">01 / Strategy</span>
+                                <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Digital Blueprints</h3>
+                                <p className="text-gray-400 font-light leading-relaxed">
+                                    I analyze your business DNA to engineer technical roadmaps that convert. Every line of code is a strategic asset.
                                 </p>
                             </div>
 
-                            {/* Service Item 2 */}
-                            <div className="group">
-                                <div className="flex items-baseline gap-4 mb-4">
-                                    <span className="text-blue-500 font-mono text-xl font-bold">02</span>
-                                    <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
-                                        Headless Architecture
-                                    </h3>
-                                </div>
-                                <p className="text-gray-400 leading-relaxed pl-10 border-l border-gray-800 group-hover:border-blue-500/50 transition-colors">
-                                    Decoupling the frontend from the backend for pure speed. I keep your content in WordPress (easy management) but render it with Next.js (instant performance). Ironclad security and infinite scalability.
+                            {/* Service 2 */}
+                            <div className="bg-black p-12 hover:bg-white/[0.02] transition-colors group border-y md:border-y-0 md:border-x border-white/10">
+                                <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">02 / Engineering</span>
+                                <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Headless Flow</h3>
+                                <p className="text-gray-400 font-light leading-relaxed">
+                                    Decoupling content from delivery. WordPress for control, Next.js for elite performance and ironclad security.
                                 </p>
                             </div>
 
-                            {/* Service Item 3 */}
-                            <div className="group">
-                                <div className="flex items-baseline gap-4 mb-4">
-                                    <span className="text-blue-500 font-mono text-xl font-bold">03</span>
-                                    <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
-                                        Performance Engineering
-                                    </h3>
-                                </div>
-                                <p className="text-gray-400 leading-relaxed pl-10 border-l border-gray-800 group-hover:border-blue-500/50 transition-colors">
-                                    Optimization isn't an afterthought. I build with <strong>Core Web Vitals</strong> in mind from day one. SSR, Image Optimization, and Edge Caching to ensure your site ranks higher and converts better.
+                            {/* Service 3 */}
+                            <div className="bg-black p-12 hover:bg-white/[0.02] transition-colors group">
+                                <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">03 / Velocity</span>
+                                <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Core Vitals</h3>
+                                <p className="text-gray-400 font-light leading-relaxed">
+                                    Zero-lag experiences. SSR, meticulous asset optimization, and edge caching for sub-second speeds.
                                 </p>
                             </div>
+                        </div>
+
+                        {/* Bottom CTA / Tech Stack Link */}
+                        <div className="lg:col-span-12 mt-12">
+                            <TechStack />
                         </div>
                     </div>
                 </div>
-
-                {/* Tech Stack Component Integration */}
-                <TechStack />
             </ParallaxSection>
         </section>
     );
