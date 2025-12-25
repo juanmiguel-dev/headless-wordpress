@@ -8,6 +8,7 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import styles from "./PostTemplate.module.css";
 import { PostQuery } from "./PostQuery";
 import BackgroundSlideshow from "./BackgroundSlideshow";
+import RelatedPostsSlider from "./RelatedPostsSlider";
 
 interface TemplateProps {
   node: ContentNode;
@@ -104,6 +105,9 @@ export default async function PostTemplate({ node }: TemplateProps) {
           dangerouslySetInnerHTML={{ __html: post.content || "" }}
         />
       </motion.div>
+
+      {/* RELATED POSTS SLIDER */}
+      <RelatedPostsSlider posts={otherPosts} currentPostId={post.databaseId} />
 
       {/* 3. FOOTER */}
       <footer className={styles.footer}>
