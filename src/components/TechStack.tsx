@@ -20,7 +20,7 @@ const TechStack = () => {
         {
             id: "PE_04",
             category: "Performance",
-            tools: ["Core Web Vitals 100", "ISR Strategy", "Image Optimization", "Static Edge Caching"],
+            tools: ["Core Web Vitals Green", "ISR Strategy", "Image Optimization", "Static Edge Caching"],
         },
     ];
 
