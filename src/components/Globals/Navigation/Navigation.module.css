@@ -1,5 +1,46 @@
 .navigation {
-  padding: 20px;
   display: flex;
-  gap: 20px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navigation a {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navigation a:hover {
+  color: var(--neon-lime, #DFFF00);
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--neon-lime, #DFFF00);
+  transition: width 0.3s ease;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    gap: 1rem;
+  }
+
+  .navigation span {
+    font-size: 0.75rem;
+  }
 }

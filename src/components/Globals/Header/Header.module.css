@@ -1,0 +1,98 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1rem 1.5rem;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(223, 255, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.header:hover {
+    background: rgba(10, 10, 10, 0.8);
+    border-bottom: 1px solid rgba(223, 255, 0, 0.3);
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logoText {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: -0.05em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.logoDot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--neon-lime, #DFFF00);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(223, 255, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.navWrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.ctaButton {
+    background: transparent;
+    border: 1px solid var(--neon-lime, #DFFF00);
+    color: var(--neon-lime, #DFFF00);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.ctaButton:hover {
+    background: var(--neon-lime, #DFFF00);
+    color: #000;
+    box-shadow: 0 0 15px rgba(223, 255, 0, 0.4);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .navWrapper {
+        display: none;
+        /* simple for now, can add burger later */
+    }
+}

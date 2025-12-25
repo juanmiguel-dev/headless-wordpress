@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 import "@/app/globals.css";
 
-import Navigation from "@/components/Globals/Navigation/Navigation";
+import Header from "@/components/Globals/Header/Header";
 import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -56,7 +56,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {isEnabled && <PreviewNotice />}
-        <Navigation />
+        <Header />
         {children}
       </body>
     </html>
