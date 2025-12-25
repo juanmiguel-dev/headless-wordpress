@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 
 import Header from "@/components/Globals/Header/Header";
+import ParallaxBackground from "@/components/Globals/Parallax/ParallaxBackground";
 import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -56,6 +57,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {isEnabled && <PreviewNotice />}
+        <ParallaxBackground />
         <Header />
         {children}
       </body>
