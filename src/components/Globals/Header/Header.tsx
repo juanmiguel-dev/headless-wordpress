@@ -9,7 +9,7 @@ import Navigation from "../Navigation/Navigation";
 import HeaderClient from "./HeaderClient";
 
 async function getData() {
-    const menuQuery = gql`
+  const menuQuery = gql`
     query MenuQuery {
       menuItems(where: { location: MENU_1 }) {
         nodes {
@@ -21,24 +21,24 @@ async function getData() {
     }
   `;
 
-    const { menuItems } = await fetchGraphQL<{
-        menuItems: RootQueryToMenuItemConnection;
-    }>(print(menuQuery));
+  const { menuItems } = await fetchGraphQL<{
+    menuItems: RootQueryToMenuItemConnection;
+  }>(print(menuQuery));
 
-    if (menuItems === null) {
-        return { nodes: [] };
-    }
+  if (menuItems === null) {
+    return { nodes: [] };
+  }
 
-    return menuItems;
+  return menuItems;
 }
 
 export default async function Header() {
-    const menuItems = await getData();
-    const nodes = (menuItems.nodes as MenuItem[] || []).filter((item): item is MenuItem => !!item && !!item.uri && !!item.label);
+  const menuItems = await getData();
+  const nodes = (menuItems.nodes as MenuItem[] || []).filter((item): item is MenuItem => !!item && !!item.uri && !!item.label);
 
-    return (
-        <HeaderClient menuItems={nodes}>
-            <Navigation />
-        </HeaderClient>
-    );
+  return (
+    <HeaderClient menuItems={nodes}>
+      <Navigation menuItems={nodes} />
+    </HeaderClient>
+  );
 }

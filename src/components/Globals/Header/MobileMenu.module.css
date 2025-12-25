@@ -43,9 +43,28 @@
     position: relative;
 }
 
-.menuItem:hover {
+.menuItem:hover,
+.menuItem.active {
     color: var(--neon-lime, #DFFF00);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 12px rgba(223, 255, 0, 0.6);
+}
+
+.active {
+    animation: mobilePulse 3s ease-in-out infinite;
+}
+
+@keyframes mobilePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
 }
 
 .closeButton {

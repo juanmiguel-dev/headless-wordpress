@@ -48,6 +48,8 @@ function MatrixText({ text, delay = 0 }: { text: string; delay?: number }) {
 
 import { MenuItem } from "@/gql/graphql";
 
+import { usePathname } from "next/navigation";
+
 export default function MobileMenu({
     isOpen,
     onClose,
@@ -57,6 +59,8 @@ export default function MobileMenu({
     onClose: () => void;
     menuItems: MenuItem[]
 }) {
+    const pathname = usePathname();
+
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
@@ -78,11 +82,14 @@ export default function MobileMenu({
             <nav className={styles.menuList}>
                 {isOpen && menuItems.map((item, index) => {
                     if (!item.uri || !item.label) return null;
+
+                    const isActive = pathname === item.uri;
+
                     return (
                         <Link
                             key={index}
                             href={item.uri}
-                            className={styles.menuItem}
+                            className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
                             onClick={onClose}
                         >
                             <MatrixText text={item.label} delay={index * 150} />

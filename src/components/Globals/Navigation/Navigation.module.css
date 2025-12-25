@@ -31,8 +31,31 @@
   transition: width 0.3s ease;
 }
 
-.navigation a:hover::after {
+.navigation a:hover::after,
+.navigation a.active::after {
   width: 100%;
+}
+
+.active {
+  color: var(--neon-lime, #DFFF00) !important;
+  text-shadow: 0 0 10px rgba(223, 255, 0, 0.4);
+  animation: eternalPulse 4s ease-in-out infinite;
+}
+
+@keyframes eternalPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+    transform: scale(1.02);
+  }
 }
 
 @media (max-width: 768px) {
