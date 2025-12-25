@@ -83,7 +83,15 @@ export default function MobileMenu({
                 {isOpen && menuItems.map((item, index) => {
                     if (!item.uri || !item.label) return null;
 
-                    const isActive = pathname === item.uri;
+                    const normalize = (path: string) => {
+                        try {
+                            const url = new URL(path);
+                            return url.pathname.replace(/\/$/, "") || "/";
+                        } catch {
+                            return path.replace(/\/$/, "") || "/";
+                        }
+                    };
+                    const isActive = normalize(pathname) === normalize(item.uri);
 
                     return (
                         <Link

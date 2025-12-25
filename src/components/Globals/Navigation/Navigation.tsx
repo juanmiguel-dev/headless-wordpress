@@ -22,7 +22,17 @@ export default function Navigation({ menuItems }: NavigationProps) {
       {menuItems.map((item: MenuItem, index: number) => {
         if (!item.uri) return null;
 
-        const isActive = pathname === item.uri;
+        const normalize = (path: string) => {
+          try {
+            // If it's an absolute URL, extract the pathname
+            const url = new URL(path);
+            return url.pathname.replace(/\/$/, "") || "/";
+          } catch {
+            // If it's already a relative path
+            return path.replace(/\/$/, "") || "/";
+          }
+        };
+        const isActive = normalize(pathname) === normalize(item.uri);
 
         return (
           <Link
