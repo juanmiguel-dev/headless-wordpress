@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import HeroBackground from '../HeroBackground';
 
 const Phone3D = () => {
     const phoneRef = useRef<HTMLDivElement>(null);
@@ -84,18 +85,9 @@ const Phone3D = () => {
                         {/* Screen Shadow inner */}
                         <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] z-20 pointer-events-none" />
 
-                        {/* Screen content (Video) */}
+                        {/* Screen content (Matrix) */}
                         <div className="absolute inset-0 bg-[#050505] overflow-hidden m-0.5 rounded-[3.5rem]">
-                            <video
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="w-full h-full object-cover opacity-60"
-                            >
-                                <source src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.webm" type="video/webm" />
-                                <source src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.mp4" type="video/mp4" />
-                            </video>
+                            <HeroBackground opacity={0.6} />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                         </div>
 
