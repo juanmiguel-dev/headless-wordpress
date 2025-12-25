@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Header.module.css";
 import MobileMenu from "./MobileMenu";
 
@@ -22,7 +23,14 @@ export default function HeaderClient({
         <>
             <header className={styles.header}>
                 <Link href="/" className={styles.logoContainer}>
-                    <span className={styles.logoText}>PACHADEV</span>
+                    <Image
+                        src="https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp"
+                        alt="Pachadev Logo"
+                        width={140}
+                        height={40}
+                        className={styles.logoImage}
+                        priority
+                    />
                     <div className={styles.logoDot}></div>
                 </Link>
 

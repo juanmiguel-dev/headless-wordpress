@@ -44,6 +44,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
+  // 5. Icons
+  icons: {
+    icon: "https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp",
+    shortcut: "https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp",
+    apple: "https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp",
+  },
 };
 
 export default async function RootLayout({

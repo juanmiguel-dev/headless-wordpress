@@ -37,7 +37,7 @@ export default function ConceptPage() {
                             src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
                             alt="Hero Background"
                             fill
-                            className="object-cover brightness-50"
+                            className="object-cover brightness-10"
                             priority
                         />
                     </video>
@@ -95,9 +95,7 @@ export default function ConceptPage() {
                             unleashes the technical performance your users deserve.
                             It's not just a website; it's a competitive advantage.
                         </p>
-                        <Link href="/portfolio" className="text-white font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-4 transition-all">
-                            View Portfolio <span className="text-neon-lime">→</span>
-                        </Link>
+
                     </div>
                 </div>
             </section>
