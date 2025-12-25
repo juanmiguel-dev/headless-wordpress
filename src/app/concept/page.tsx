@@ -1,15 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SynergySection from "@/components/Concept/SynergySection";
 
 export const metadata = {
     title: "Visual Concept | Headless Design Demo",
-    description: "Una demostración de diseño UI de alta fidelidad con Next.js.",
+    description: "Una demostración de diseño UI de alta fidelidad con Next.js + WordPress.",
 };
 
 export default function ConceptPage() {
     return (
-        <main className="bg-white text-black min-h-screen">
+        <main className="bg-black text-white min-h-screen">
 
             {/* 1. HERO SECTION (Estilo Video/Imagen Full Screen) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -20,108 +21,95 @@ export default function ConceptPage() {
                         muted
                         loop
                         playsInline
-                        preload="metadata" // ⬅️ CRÍTICO: Solo carga metadatos, no el video completo
-                        className="object-cover w-full h-full brightness-75"
+                        preload="metadata"
+                        className="object-cover w-full h-full brightness-[0.4]"
                         poster="https://v2.pachadev.com/wp-content/uploads/2025/12/back-black.webp?q=80&w=2070&auto=format&fit=crop"
                     >
-                        {/* Siempre ofrecer WebM primero (más ligero) */}
                         <source
                             src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.webm"
                             type="video/webm"
                         />
-                        {/* Fallback MP4 para Safari */}
                         <source
                             src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.mp4"
                             type="video/mp4"
                         />
-                        {/* Fallback final: si el video no carga, muestra la imagen */}
                         <Image
                             src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta.jpg?q=80&w=2070&auto=format&fit=crop"
                             alt="Hero Background"
                             fill
-                            className="object-cover brightness-75"
+                            className="object-cover brightness-50"
                             priority
                         />
                     </video>
                 </div>
-                <div className="relative z-10 text-center text-white px-4">
-                    <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-4">
-                        Lighter & Powerfull
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black z-1" />
+
+                <div className="relative z-10 text-center text-white px-4 max-w-4xl">
+                    <p className="text-xs md:text-sm tracking-[0.5em] uppercase mb-6 opacity-60 font-mono">
+                        Digital Engineering / Headless
                     </p>
-                    <h1 className="text-5xl md:text-8xl font-serif italic tracking-tight mb-8">
-                        NextJs + <br className="md:hidden" /> WordPress
+                    <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-white">
+                        THE<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/40 italic font-serif lowercase font-light ml-4">Concept.</span>
                     </h1>
-                    <Link
-                        href="#explore"
-                        className="inline-block border border-white px-8 py-3 text-sm hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest"
-                    >
-                        Discover
-                    </Link>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
+                        <Link
+                            href="#synergy"
+                            className="inline-block border border-neon-lime text-neon-lime px-10 py-4 text-xs hover:bg-neon-lime hover:text-black transition-all duration-400 uppercase tracking-widest font-bold"
+                        >
+                            Explore Synergy
+                        </Link>
+                    </div>
                 </div>
             </section>
 
-            {/* 2. INTRO TEXT (Minimalista) */}
-            <section id="explore" className="py-24 px-6 md:px-12 max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-light leading-snug text-gray-800">
-                    "Redefining freedom through exceptional engineering and timeless design.
-                    Speed and Power."
-                </h2>
-            </section>
+            {/* 2. SYNERGY SECTION (Interactive) */}
+            <div id="synergy">
+                <SynergySection />
+            </div>
 
-            {/* 3. BENTO GRID (El estilo característico de Noovo) */}
-            <section className="px-4 md:px-8 pb-24">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[800px]">
-
-                    {/* Card Grande Izquierda */}
-                    <div className="md:col-span-8 relative group overflow-hidden rounded-2xl h-[500px] md:h-full">
+            {/* 3. ADDITIONAL CONCEPT GRID (Estilo Industrial) */}
+            <section className="px-4 md:px-8 pb-32 bg-black">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl mx-auto">
+                    {/* Visual Card */}
+                    <div className="md:col-span-7 relative group overflow-hidden rounded-sm h-[400px] md:h-[600px] border border-white/5">
                         <Image
                             src="https://v2.pachadev.com/wp-content/uploads/2025/12/Neon_text_effect.jpg?q=80&w=2070&auto=format&fit=crop"
-                            alt="Interior"
+                            alt="Performance architecture"
                             fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
                         />
-                        <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/60 to-transparent text-white">
-                            <h3 className="text-2xl font-bold">The Pop-Top Plus</h3>
-                            <p className="text-gray-200 mt-2">Engineered for vertical space.</p>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                        <div className="absolute bottom-0 left-0 p-10 w-full">
+                            <span className="text-neon-lime font-mono text-xs mb-4 block uppercase tracking-widest">Efficiency Layer</span>
+                            <h3 className="text-3xl font-black uppercase text-white">Edge Computing</h3>
                         </div>
                     </div>
 
-                    {/* Columna Derecha (2 Cards apiladas) */}
-                    <div className="md:col-span-4 flex flex-col gap-4 h-full">
-
-                        {/* Card Superior Derecha */}
-                        <div className="flex-1 relative group overflow-hidden rounded-2xl min-h-[300px]">
-                            <Image
-                                src="https://v2.pachadev.com/wp-content/uploads/2025/12/mockup-mardelplata-blockchain-fecha-cierta-mobile-view.jpg?q=80&w=2021&auto=format&fit=crop"
-                                alt="Travel"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-                                <span className="text-white border-b border-white pb-1 text-lg">Our Journey</span>
-                            </div>
-                        </div>
-
-                        {/* Card Inferior Derecha (Texto/CTA) */}
-                        <div className="flex-1 bg-gray-100 rounded-2xl p-8 flex flex-col justify-center items-start hover:bg-gray-200 transition-colors">
-                            <h4 className="text-xl font-bold mb-4">Ready to go?</h4>
-                            <p className="text-gray-600 mb-6 text-sm">
-                                Explore our available inventory and start your adventure today.
-                            </p>
-                            <button className="text-black font-bold underline decoration-1 underline-offset-4 hover:opacity-70">
-                                View Inventory &rarr;
-                            </button>
-                        </div>
-
+                    {/* Textual Card */}
+                    <div className="md:col-span-5 flex flex-col justify-center p-12 bg-white/5 border border-white/5 rounded-sm group hover:border-neon-lime/20 transition-colors">
+                        <span className="text-gray-500 font-mono text-xs mb-6 uppercase tracking-widest">The "Why"</span>
+                        <h4 className="text-4xl font-black uppercase mb-8 leading-tight">Beyond <span className="text-neon-lime">speed.</span></h4>
+                        <p className="text-gray-400 text-lg mb-10 leading-relaxed font-light">
+                            WordPress provides the editorial freedom your team loves, while Next.js
+                            unleashes the technical performance your users deserve.
+                            It's not just a website; it's a competitive advantage.
+                        </p>
+                        <Link href="/portfolio" className="text-white font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-4 transition-all">
+                            View Portfolio <span className="text-neon-lime">→</span>
+                        </Link>
                     </div>
                 </div>
             </section>
 
             {/* 4. FOOTER SIMPLE */}
-            <footer className="bg-black text-white py-12 text-center">
-                <p className="text-gray-500 text-sm">
-                    Designed by Juan Miguel Rivero y Hornos using Next.js 15
-                </p>
+            <footer className="bg-black text-white/20 py-24 border-t border-white/5 text-center px-6">
+                <div className="max-w-xl mx-auto">
+                    <p className="text-xs uppercase tracking-[0.3em] font-mono leading-relaxed">
+                        Pachadev Architecture &copy; 2025<br />
+                        Developed with Next.js 15 + WPGraphQL
+                    </p>
+                </div>
             </footer>
         </main>
     );
