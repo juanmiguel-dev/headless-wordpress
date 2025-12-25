@@ -7,17 +7,19 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 
 import styles from "./PostTemplate.module.css";
 import { PostQuery } from "./PostQuery";
+import BackgroundSlideshow from "./BackgroundSlideshow";
 
 interface TemplateProps {
   node: ContentNode;
 }
 
 export default async function PostTemplate({ node }: TemplateProps) {
-  const { post } = await fetchGraphQL<{ post: Post }>(print(PostQuery), {
+  const { post, posts } = await fetchGraphQL<{ post: Post; posts: { nodes: any[] } }>(print(PostQuery), {
     id: node.databaseId,
   });
 
   if (!post) return null;
+  const otherPosts = posts?.nodes || [];
 
   const dateValue = post.date || new Date().toISOString();
   const formattedDate = new Date(dateValue).toLocaleDateString('en-US', {
@@ -28,6 +30,8 @@ export default async function PostTemplate({ node }: TemplateProps) {
 
   return (
     <article className={styles.page}>
+      <BackgroundSlideshow posts={otherPosts} currentPostId={post.databaseId} />
+
       {/* 1. HERO SECTION */}
       <section className={styles.hero}>
         <div className={styles.blueprintOverlay} />

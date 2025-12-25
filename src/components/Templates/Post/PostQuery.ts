@@ -19,5 +19,19 @@ export const PostQuery = gql`
         }
       }
     }
+    posts(first: 10, where: { orderby: { field: DATE, order: DESC } }) {
+      nodes {
+        id
+        title
+        slug
+        databaseId
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+      }
+    }
   }
 `;
