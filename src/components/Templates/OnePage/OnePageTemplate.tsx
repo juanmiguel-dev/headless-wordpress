@@ -15,7 +15,7 @@ export default function OnePageTemplate({ node, posts = [] }: OnePageTemplatePro
             <Hero />
             <Services />
             <Portfolio posts={posts} />
-            <Phone3D posts={posts} />
+            <Phone3D />
             {/* Additional sections can be added here */}
         </div>
     );

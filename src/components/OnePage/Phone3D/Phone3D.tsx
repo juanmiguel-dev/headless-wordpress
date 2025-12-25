@@ -5,45 +5,11 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-interface PostNode {
-    id: string;
-    title: string;
-    slug: string;
-    databaseId: number;
-    featuredImage?: {
-        node: {
-            sourceUrl: string;
-            altText: string;
-        };
-    };
-}
-
-interface Phone3DProps {
-    posts: PostNode[];
-}
-
-const Phone3D = ({ posts }: Phone3DProps) => {
+const Phone3D = () => {
     const phoneRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const sliderRef = useRef<HTMLDivElement>(null);
 
-    // Filter posts with images and repeat for infinite scroll
-    const items = posts.filter(p => p.featuredImage?.node?.sourceUrl);
-    const doubleItems = [...items, ...items];
-
-    // 1. Vertical Infinite Scroll Animation
-    useGSAP(() => {
-        if (!sliderRef.current || items.length === 0) return;
-
-        gsap.to(sliderRef.current, {
-            yPercent: -50,
-            duration: items.length * 10,
-            repeat: -1,
-            ease: "linear",
-        });
-    }, { scope: containerRef });
-
-    // 2. 3D Tilt Interaction
+    // 1. 3D Tilt Interaction
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!containerRef.current || !phoneRef.current) return;
 
@@ -72,8 +38,6 @@ const Phone3D = ({ posts }: Phone3DProps) => {
         });
     };
 
-    if (items.length === 0) return null;
-
     return (
         <section className="py-40 bg-black relative overflow-hidden border-t border-white/5">
             {/* Decorative Background Text */}
@@ -98,7 +62,7 @@ const Phone3D = ({ posts }: Phone3DProps) => {
                         </p>
                         <div className="flex gap-4 font-mono text-[10px] text-white/20 uppercase tracking-[0.3em]">
                             <span className="px-3 py-1 border border-white/10">Next.js Alpha</span>
-                            <span className="px-3 py-1 border border-white/10">GSAP Driven</span>
+                            <span className="px-3 py-1 border border-white/10">Edge Video</span>
                         </div>
                     </div>
                 </div>
@@ -120,21 +84,19 @@ const Phone3D = ({ posts }: Phone3DProps) => {
                         {/* Screen Shadow inner */}
                         <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] z-20 pointer-events-none" />
 
-                        {/* Screen content */}
+                        {/* Screen content (Video) */}
                         <div className="absolute inset-0 bg-[#050505] overflow-hidden m-0.5 rounded-[3.5rem]">
-                            <div ref={sliderRef} className="flex flex-col">
-                                {doubleItems.map((item, i) => (
-                                    <div key={`${item.id}-${i}`} className="relative aspect-[9/19] w-full border-b border-white/5">
-                                        <Image
-                                            src={item.featuredImage!.node.sourceUrl}
-                                            alt={item.title}
-                                            fill
-                                            className="object-cover opacity-80"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                                    </div>
-                                ))}
-                            </div>
+                            <video
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className="w-full h-full object-cover opacity-60"
+                            >
+                                <source src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.webm" type="video/webm" />
+                                <source src="https://v2.pachadev.com/wp-content/uploads/2025/12/blue.mp4" type="video/mp4" />
+                            </video>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                         </div>
 
                         {/* Device Hardware Details */}
