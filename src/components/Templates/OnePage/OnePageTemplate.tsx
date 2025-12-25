@@ -2,6 +2,7 @@ import { ContentNode } from "@/gql/graphql";
 import Hero from "@/components/OnePage/Hero";
 import Services from "@/components/OnePage/Services";
 import Portfolio from "@/components/OnePage/Portfolio";
+import Phone3D from "@/components/OnePage/Phone3D/Phone3D";
 
 interface OnePageTemplateProps {
     node?: ContentNode; // Optional, in case we want to pass data later
@@ -14,6 +15,7 @@ export default function OnePageTemplate({ node, posts = [] }: OnePageTemplatePro
             <Hero />
             <Services />
             <Portfolio posts={posts} />
+            <Phone3D posts={posts} />
             {/* Additional sections can be added here */}
         </div>
     );

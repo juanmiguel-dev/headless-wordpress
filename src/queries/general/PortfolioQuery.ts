@@ -8,6 +8,7 @@ export const PortfolioQuery = gql`
         title
         excerpt
         slug
+        databaseId
         date
         featuredImage {
           node {
