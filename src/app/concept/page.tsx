@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SynergySection from "@/components/Concept/SynergySection";
+import Footer from "@/components/Globals/Footer/Footer";
 
 export const metadata = {
     title: "Visual Concept | Headless Design Demo",
@@ -100,15 +101,8 @@ export default function ConceptPage() {
                 </div>
             </section>
 
-            {/* 4. FOOTER SIMPLE */}
-            <footer className="bg-black text-white/20 py-24 border-t border-white/5 text-center px-6">
-                <div className="max-w-xl mx-auto">
-                    <p className="text-xs uppercase tracking-[0.3em] font-mono leading-relaxed">
-                        Pachadev Architecture &copy; 2025<br />
-                        Developed with Next.js 15 + WPGraphQL
-                    </p>
-                </div>
-            </footer>
+            {/* 4. FOOTER */}
+            <Footer />
         </main>
     );
 }

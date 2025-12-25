@@ -3,6 +3,7 @@ import Hero from "@/components/OnePage/Hero";
 import Services from "@/components/OnePage/Services";
 import Portfolio from "@/components/OnePage/Portfolio";
 import Phone3D from "@/components/OnePage/Phone3D/Phone3D";
+import Footer from "@/components/Globals/Footer/Footer";
 
 interface OnePageTemplateProps {
     node?: ContentNode; // Optional, in case we want to pass data later
@@ -16,7 +17,7 @@ export default function OnePageTemplate({ node, posts = [] }: OnePageTemplatePro
             <Services />
             <Portfolio posts={posts} />
             <Phone3D />
-            {/* Additional sections can be added here */}
+            <Footer />
         </div>
     );
 }
