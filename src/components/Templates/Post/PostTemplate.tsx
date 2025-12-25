@@ -86,7 +86,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
             </div>
             <div className={styles.metaItem}>
               <span className={styles.itemLabel}>AUTH_CORE</span>
-              <span className={styles.itemValue}>{post.author?.node.name || "System"}</span>
+              <span className={styles.itemValue}>Juan Miguel</span>
             </div>
           </motion.div>
         </div>
