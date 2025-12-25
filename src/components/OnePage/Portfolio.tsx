@@ -32,15 +32,13 @@ export default function Portfolio({ posts }: PortfolioProps) {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="mb-24 flex flex-col md:flex-row items-end justify-between gap-8">
                     <div>
-                        <span className="text-neon-lime font-mono text-xs uppercase tracking-[0.5em] mb-4 block">Archive / 025</span>
+                        <span className="text-neon-lime font-mono text-xs uppercase tracking-[0.5em] mb-4 block">Fundamentals</span>
                         <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
-                            PROJECTS<br />
+                            & Concepts<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/20 italic font-serif lowercase font-light ml-4">Selected.</span>
                         </h2>
                     </div>
-                    <p className="text-gray-500 font-light max-w-xs text-right text-sm leading-relaxed mb-4">
-                        A curated selection of performance-first architectures and digital ecosystems.
-                    </p>
+
                 </div>
 
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-2">

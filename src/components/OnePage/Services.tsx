@@ -26,7 +26,7 @@ export default function Services() {
                                 <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">01 / Strategy</span>
                                 <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Digital Blueprints</h3>
                                 <p className="text-gray-400 font-light leading-relaxed">
-                                    I analyze your business DNA to engineer technical roadmaps that convert. Every line of code is a strategic asset.
+                                    I analyze your business DNA to engineer technical roadmaps. Every line of code is a strategic asset.
                                 </p>
                             </div>
 
