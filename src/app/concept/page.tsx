@@ -75,7 +75,7 @@ export default function ConceptPage() {
                     {/* Visual Card */}
                     <div className="md:col-span-7 relative group overflow-hidden rounded-sm h-[400px] md:h-[600px] border border-white/5">
                         <Image
-                            src="https://v2.pachadev.com/wp-content/uploads/2025/12/Neon_text_effect.jpg?q=80&w=2070&auto=format&fit=crop"
+                            src="https://v2.pachadev.com/wp-content/uploads/2025/12/2396-Grande.jpg?q=80&w=2070&auto=format&fit=crop"
                             alt="Performance architecture"
                             fill
                             className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
