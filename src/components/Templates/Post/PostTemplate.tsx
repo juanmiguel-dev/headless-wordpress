@@ -19,7 +19,8 @@ export default async function PostTemplate({ node }: TemplateProps) {
 
   if (!post) return null;
 
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+  const dateValue = post.date || new Date().toISOString();
+  const formattedDate = new Date(dateValue).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric'
@@ -36,7 +37,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
           <div className={styles.heroImage}>
             <Image
               src={post.featuredImage.node.sourceUrl}
-              alt={post.featuredImage.node.altText || post.title}
+              alt={post.featuredImage.node.altText || post.title || ""}
               fill
               priority
               quality={100}
@@ -60,8 +61,8 @@ export default async function PostTemplate({ node }: TemplateProps) {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className={styles.title}
           >
-            {post.title}
-            <span>entry.0{post.databaseId}</span>
+            {post.title || ""}
+            <span>entry.0{post.databaseId || "0"}</span>
           </motion.h1>
 
           <motion.div
@@ -72,7 +73,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
           >
             <div className={styles.metaItem}>
               <span className={styles.itemLabel}>ID_NODE</span>
-              <span className={styles.itemValue}>0x{post.databaseId.toString(16)}</span>
+              <span className={styles.itemValue}>0x{(post.databaseId || 0).toString(16)}</span>
             </div>
             <div className={styles.metaItem}>
               <span className={styles.itemLabel}>DATE_PUB</span>
