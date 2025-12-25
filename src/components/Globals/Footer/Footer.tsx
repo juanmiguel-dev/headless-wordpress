@@ -8,7 +8,15 @@ const Footer = () => {
             <div className={styles.container}>
                 <div className={styles.topSection}>
                     <div className={styles.brand}>
-                        <span className={styles.copy}>Pachadev Architecture * 2026</span>
+                        <Link
+                            href="https://pachadev.com/"
+                            target="_blank"
+                            className={styles.socialLink}
+                        >
+                            Pachadev Architecture
+                            <span className={styles.dot} />
+                        </Link>
+
                     </div>
 
                     <div className={styles.socials}>
