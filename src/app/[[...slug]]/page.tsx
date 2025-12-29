@@ -45,8 +45,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } as Metadata;
 }
 
-export function generateStaticParams() {
-  return [];
+import { AllSlugsQuery } from "@/queries/general/AllSlugsQuery";
+
+// ... (resto de las importaciones y código)
+
+export async function generateStaticParams() {
+  try {
+    const { posts, pages } = await fetchGraphQL<{ posts: { nodes: { slug: string }[] }; pages: { nodes: { slug: string }[] } }>(
+      AllSlugsQuery,
+    );
+
+    const allSlugs = [...posts.nodes, ...pages.nodes].map((node) => ({
+      slug: node.slug === "/" ? [] : node.slug.split("/"),
+    }));
+
+    return allSlugs;
+  } catch (error) {
+    console.error("Error fetching slugs for generateStaticParams:", error);
+    // Devolver un array vacío para evitar que la compilación falle
+    return [];
+  }
 }
 
 export default async function Page({ params }: Props) {
