@@ -15,7 +15,7 @@ export default function Hero() {
                         Digital Engineering / Headless Architecture
                     </p>
 
-                    <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-white">
+                    <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-white opacity-100">
                         WORDPRESS<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/20 italic font-serif lowercase font-light ml-4">evolution.</span>
                     </h1>

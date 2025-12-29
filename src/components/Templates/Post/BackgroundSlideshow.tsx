@@ -78,25 +78,25 @@ export default function BackgroundSlideshow({ posts, currentPostId }: Background
             </AnimatePresence>
 
             {/* Floating Metadata Ornament */}
-            <div className="absolute bottom-12 left-12 z-20 font-mono text-[10px] uppercase tracking-[0.4em] text-white/10 hidden md:block">
+            <div className="absolute bottom-12 left-12 z-20 font-mono text-[10px] uppercase tracking-[0.4em] text-white/40 hidden md:block">
                 <div className="flex flex-col gap-1">
                     <span>Buffer // background_stream.raw</span>
                     <div className="flex items-center gap-4">
-                        <span className="text-neon-lime/40">Active_Node: 0x{currentSlide.databaseId.toString(16)}</span>
-                        <div className="h-px w-8 bg-white/5" />
+                        <span className="text-neon-lime/70">Active_Node: 0x{currentSlide.databaseId.toString(16)}</span>
+                        <div className="h-px w-8 bg-white/40" />
                         <span>Slide_{index + 1}/{otherPosts.length}</span>
                     </div>
                 </div>
             </div>
 
             {/* Progress Bar */}
-            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/5 z-20">
+            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/40 z-20">
                 <motion.div
                     key={index}
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
                     transition={{ duration: 6, ease: "linear" }}
-                    className="h-full bg-neon-lime/20"
+                    className="h-full bg-neon-lime/70"
                 />
             </div>
         </div>

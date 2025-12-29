@@ -40,7 +40,7 @@ const Phone3D = () => {
     };
 
     return (
-        <section className="py-40 bg-black relative overflow-hidden border-t border-white/5">
+        <section className="py-40 bg-black relative overflow-hidden border-t border-white/40">
             {/* Decorative Background Text */}
             <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none select-none">
                 <span className="text-[20vw] font-black uppercase tracking-tighter leading-none italic font-serif">
@@ -55,15 +55,15 @@ const Phone3D = () => {
                     <span className="text-neon-lime font-mono text-xs uppercase tracking-[0.5em] mb-8 block">Architecture // Portability</span>
                     <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8] mb-12">
                         Fluid<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/20 italic font-serif lowercase font-light ml-4">experience.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/50 italic font-serif lowercase font-light ml-4">experience.</span>
                     </h2>
                     <div className="max-w-md space-y-6">
                         <p className="text-gray-400 font-light leading-relaxed text-lg">
                             High-performance headless architecture ensuring sub-second response times across all devices.
                         </p>
-                        <div className="flex gap-4 font-mono text-[10px] text-white/20 uppercase tracking-[0.3em]">
-                            <span className="px-3 py-1 border border-white/10">Next.js Alpha</span>
-                            <span className="px-3 py-1 border border-white/10">Edge Video</span>
+                        <div className="flex gap-4 font-mono text-[10px] text-white/50 uppercase tracking-[0.3em]">
+                            <span className="px-3 py-1 border border-white/40">Next.js Alpha</span>
+                            <span className="px-3 py-1 border border-white/40">Edge Video</span>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const Phone3D = () => {
                         style={{ transformStyle: "preserve-3d" }}
                     >
                         {/* Industrial Neon Rim */}
-                        <div className="absolute inset-0 border border-neon-lime/20 rounded-[3.2rem] pointer-events-none z-30" />
+                        <div className="absolute inset-0 border border-neon-lime/50 rounded-[3.2rem] pointer-events-none z-30" />
                         {/* Screen Shadow inner */}
                         <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] z-20 pointer-events-none" />
 
@@ -96,26 +96,26 @@ const Phone3D = () => {
                         {/* Device Hardware Details */}
                         {/* Notch */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-[#1a1a1a] rounded-b-2xl z-30 flex items-center justify-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-white/5" />
-                            <div className="w-10 h-1 rounded-full bg-white/5" />
+                            <div className="w-2 h-2 rounded-full bg-white/40" />
+                            <div className="w-10 h-1 rounded-full bg-white/40" />
                         </div>
 
                         {/* Side Button Glow */}
-                        <div className="absolute top-32 -right-[14px] w-[4px] h-12 bg-white/5 rounded-l-md" />
-                        <div className="absolute top-48 -left-[14px] w-[4px] h-16 bg-white/5 rounded-r-md" />
+                        <div className="absolute top-32 -right-[14px] w-[4px] h-12 bg-white/40 rounded-l-md" />
+                        <div className="absolute top-48 -left-[14px] w-[4px] h-16 bg-white/40 rounded-r-md" />
                     </div>
 
                     {/* Technical Floating Indicators */}
-                    <div className="absolute top-1/4 -right-10 flex flex-col gap-2 font-mono text-[8px] text-white/10 uppercase tracking-widest">
-                        <span className="text-neon-lime/30">Active_Render: ON</span>
+                    <div className="absolute top-1/4 -right-10 flex flex-col gap-2 font-mono text-[8px] text-white/40 uppercase tracking-widest">
+                        <span className="text-neon-lime/70">Active_Render: ON</span>
                         <span>Buffer_Size: 512KB</span>
-                        <div className="w-20 h-px bg-white/5" />
+                        <div className="w-20 h-px bg-white/40" />
                     </div>
                 </div>
             </div>
 
             {/* Background Grid Accent */}
-            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/5" />
+            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/40" />
         </section>
     );
 };
