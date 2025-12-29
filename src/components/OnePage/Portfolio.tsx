@@ -49,14 +49,14 @@ export default function Portfolio({ posts }: PortfolioProps) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="group relative flex flex-col bg-white/[0.4] border border-white/40 rounded-sm overflow-hidden"
+                            className="group relative flex flex-col bg-black border border-white/40 rounded-sm overflow-hidden"
                         >
                             {/* Card Header / Metadata */}
-                            <div className="flex items-center justify-between px-6 py-4 border-b border-white/40 bg-white/[0.4]">
+                            <div className="flex items-center justify-between px-6 py-4 border-b border-white/40 bg-black">
                                 <div className="flex items-center gap-4">
                                     <span className="text-[10px] font-mono text-neon-lime opacity-70 uppercase tracking-widest">Post ID: {post.id.slice(0, 8)}</span>
                                     <span className="h-1 w-1 rounded-full bg-white/50" />
-                                    <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">{new Date(post.date).getFullYear()}</span>
+                                    <span className="text-[10px] font-mono text-gray-200 uppercase tracking-widest">{new Date(post.date).getFullYear()}</span>
                                 </div>
                                 <div className="flex gap-1">
                                     <div className="w-1 h-1 rounded-full bg-neon-lime/40" />
@@ -77,7 +77,7 @@ export default function Portfolio({ posts }: PortfolioProps) {
                                             className="object-cover opacity-60 grayscale transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100"
                                         />
                                     ) : (
-                                        <div className="absolute inset-0 flex items-center justify-center bg-white/50">
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black">
                                             <span className="text-[10px] font-mono text-gray-700 uppercase tracking-tighter">no_visual_data</span>
                                         </div>
                                     )}
@@ -96,7 +96,7 @@ export default function Portfolio({ posts }: PortfolioProps) {
                                             </Link>
                                         </h3>
                                         <div
-                                            className="text-gray-500 text-sm font-light leading-relaxed mb-8 line-clamp-3"
+                                            className="text-gray-200 text-sm font-light leading-relaxed mb-8 line-clamp-3"
                                             dangerouslySetInnerHTML={{ __html: post.excerpt }}
                                         />
                                     </div>
