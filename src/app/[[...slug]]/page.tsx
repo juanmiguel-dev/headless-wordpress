@@ -52,7 +52,7 @@ import { AllSlugsQuery } from "@/queries/general/AllSlugsQuery";
 export async function generateStaticParams() {
   try {
     const { posts, pages } = await fetchGraphQL<{ posts: { nodes: { slug: string }[] }; pages: { nodes: { slug: string }[] } }>(
-      AllSlugsQuery,
+      print(AllSlugsQuery),
     );
 
     const allSlugs = [...posts.nodes, ...pages.nodes].map((node) => ({
