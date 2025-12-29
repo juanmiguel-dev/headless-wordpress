@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -674,13 +675,13 @@ export enum CommentNodeIdTypeEnum {
 
 /** Moderation state for user comments. Determines whether comments are publicly visible, pending approval, or marked as spam. */
 export enum CommentStatusEnum {
-  /** Comments with the Approved status */
+  /** Comments with the Aprobado status */
   Approve = 'APPROVE',
-  /** Comments with the Unapproved status */
+  /** Comments with the Rechazado status */
   Hold = 'HOLD',
   /** Comments with the Spam status */
   Spam = 'SPAM',
-  /** Comments with the Trash status */
+  /** Comments with the Papelera status */
   Trash = 'TRASH'
 }
 
@@ -1937,9 +1938,9 @@ export type DeleteUserPayload = {
 /** The discussion setting type */
 export type DiscussionSettings = {
   __typename?: 'DiscussionSettings';
-  /** Allow people to submit comments on new posts. */
+  /** Permitir a la gente enviar comentarios en las nuevas entradas. */
   defaultCommentStatus?: Maybe<Scalars['String']['output']>;
-  /** Allow link notifications from other blogs (pingbacks and trackbacks) on new articles. */
+  /** Permite avisos de enlaces desde otros sitios (pingbacks y trackbacks) en los nuevos artículos. */
   defaultPingStatus?: Maybe<Scalars['String']['output']>;
 };
 
@@ -2130,23 +2131,23 @@ export type EnqueuedStylesheetConnectionPageInfo = {
 /** The general setting type */
 export type GeneralSettings = {
   __typename?: 'GeneralSettings';
-  /** A date format for all date strings. */
+  /** Formato fecha para todas las cadenas de fecha. */
   dateFormat?: Maybe<Scalars['String']['output']>;
-  /** Site tagline. */
+  /** Descripción corta del sitio. */
   description?: Maybe<Scalars['String']['output']>;
-  /** This address is used for admin purposes, like new user notification. */
+  /** Esta dirección se utiliza para fines de administración, por ejemplo, avisos de nuevos usuarios. */
   email?: Maybe<Scalars['String']['output']>;
-  /** WordPress locale code. */
+  /** Código del idioma local de WordPress. */
   language?: Maybe<Scalars['String']['output']>;
-  /** A day number of the week that the week should start on. */
+  /** El número de día en el que la semana debe comenzar. */
   startOfWeek?: Maybe<Scalars['Int']['output']>;
-  /** A time format for all time strings. */
+  /** Formato de hora para todas las cadenas de hora. */
   timeFormat?: Maybe<Scalars['String']['output']>;
-  /** A city in the same timezone as you. */
+  /** Una ciudad en la misma zona horaria que tú. */
   timezone?: Maybe<Scalars['String']['output']>;
-  /** Site title. */
+  /** Título del sitio. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Site URL. */
+  /** URL del sitio. */
   url?: Maybe<Scalars['String']['output']>;
 };
 
@@ -5516,13 +5517,13 @@ export type Previewable = {
 /** The reading setting type */
 export type ReadingSettings = {
   __typename?: 'ReadingSettings';
-  /** The ID of the page that should display the latest posts */
+  /** El ID de la página que debe mostrar las últimas entradas */
   pageForPosts?: Maybe<Scalars['Int']['output']>;
-  /** The ID of the page that should be displayed on the front page */
+  /** El ID de la página que debe mostrarse en la página de inicio */
   pageOnFront?: Maybe<Scalars['Int']['output']>;
-  /** Blog pages show at most. */
+  /** Páginas de blog mostradas como máximo. */
   postsPerPage?: Maybe<Scalars['Int']['output']>;
-  /** What to show on the front page */
+  /** Qué mostrar en la página de inicio */
   showOnFront?: Maybe<Scalars['String']['output']>;
 };
 
@@ -8123,6 +8124,27 @@ export type TaxonomyToTermNodeConnectionPageInfo = PageInfo & TermNodeConnection
   startCursor?: Maybe<Scalars['String']['output']>;
 };
 
+/** The template assigned to the node */
+export type Template_ElementorAnchoCompleto = ContentTemplate & {
+  __typename?: 'Template_ElementorAnchoCompleto';
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']['output']>;
+};
+
+/** The template assigned to the node */
+export type Template_LienzoDeElementor = ContentTemplate & {
+  __typename?: 'Template_LienzoDeElementor';
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']['output']>;
+};
+
+/** The template assigned to the node */
+export type Template_Tema = ContentTemplate & {
+  __typename?: 'Template_Tema';
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']['output']>;
+};
+
 /** Base interface for taxonomy terms such as categories and tags. Terms are used to organize and classify content. */
 export type TermNode = {
   /** The number of objects connected to the object */
@@ -8618,27 +8640,27 @@ export type UpdatePostPayload = {
 export type UpdateSettingsInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** Allow people to submit comments on new posts. */
+  /** Permitir a la gente enviar comentarios en las nuevas entradas. */
   discussionSettingsDefaultCommentStatus?: InputMaybe<Scalars['String']['input']>;
-  /** Allow link notifications from other blogs (pingbacks and trackbacks) on new articles. */
+  /** Permite avisos de enlaces desde otros sitios (pingbacks y trackbacks) en los nuevos artículos. */
   discussionSettingsDefaultPingStatus?: InputMaybe<Scalars['String']['input']>;
-  /** A date format for all date strings. */
+  /** Formato fecha para todas las cadenas de fecha. */
   generalSettingsDateFormat?: InputMaybe<Scalars['String']['input']>;
-  /** Site tagline. */
+  /** Descripción corta del sitio. */
   generalSettingsDescription?: InputMaybe<Scalars['String']['input']>;
-  /** This address is used for admin purposes, like new user notification. */
+  /** Esta dirección se utiliza para fines de administración, por ejemplo, avisos de nuevos usuarios. */
   generalSettingsEmail?: InputMaybe<Scalars['String']['input']>;
-  /** WordPress locale code. */
+  /** Código del idioma local de WordPress. */
   generalSettingsLanguage?: InputMaybe<Scalars['String']['input']>;
-  /** A day number of the week that the week should start on. */
+  /** El número de día en el que la semana debe comenzar. */
   generalSettingsStartOfWeek?: InputMaybe<Scalars['Int']['input']>;
-  /** A time format for all time strings. */
+  /** Formato de hora para todas las cadenas de hora. */
   generalSettingsTimeFormat?: InputMaybe<Scalars['String']['input']>;
-  /** A city in the same timezone as you. */
+  /** Una ciudad en la misma zona horaria que tú. */
   generalSettingsTimezone?: InputMaybe<Scalars['String']['input']>;
-  /** Site title. */
+  /** Título del sitio. */
   generalSettingsTitle?: InputMaybe<Scalars['String']['input']>;
-  /** Site URL. */
+  /** URL del sitio. */
   generalSettingsUrl?: InputMaybe<Scalars['String']['input']>;
   helloElementorSettingsSettingsHelloElementorSettingsDescriptionMetaTag?: InputMaybe<Scalars['String']['input']>;
   helloElementorSettingsSettingsHelloElementorSettingsHeaderFooter?: InputMaybe<Scalars['String']['input']>;
@@ -8646,19 +8668,19 @@ export type UpdateSettingsInput = {
   helloElementorSettingsSettingsHelloElementorSettingsHelloTheme?: InputMaybe<Scalars['String']['input']>;
   helloElementorSettingsSettingsHelloElementorSettingsPageTitle?: InputMaybe<Scalars['String']['input']>;
   helloElementorSettingsSettingsHelloElementorSettingsSkipLink?: InputMaybe<Scalars['String']['input']>;
-  /** The ID of the page that should display the latest posts */
+  /** El ID de la página que debe mostrar las últimas entradas */
   readingSettingsPageForPosts?: InputMaybe<Scalars['Int']['input']>;
-  /** The ID of the page that should be displayed on the front page */
+  /** El ID de la página que debe mostrarse en la página de inicio */
   readingSettingsPageOnFront?: InputMaybe<Scalars['Int']['input']>;
-  /** Blog pages show at most. */
+  /** Páginas de blog mostradas como máximo. */
   readingSettingsPostsPerPage?: InputMaybe<Scalars['Int']['input']>;
-  /** What to show on the front page */
+  /** Qué mostrar en la página de inicio */
   readingSettingsShowOnFront?: InputMaybe<Scalars['String']['input']>;
-  /** Default post category. */
+  /** Categoria de entrada por defecto */
   writingSettingsDefaultCategory?: InputMaybe<Scalars['Int']['input']>;
-  /** Default post format. */
+  /** Formato de la entrada por defecto. */
   writingSettingsDefaultPostFormat?: InputMaybe<Scalars['String']['input']>;
-  /** Convert emoticons like :-) and :-P to graphics on display. */
+  /** Convierte emoticonos como :-) y :-P en gráficos en la pantalla. */
   writingSettingsUseSmilies?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9604,10 +9626,10 @@ export type WpPageInfo = {
 /** The writing setting type */
 export type WritingSettings = {
   __typename?: 'WritingSettings';
-  /** Default post category. */
+  /** Categoria de entrada por defecto */
   defaultCategory?: Maybe<Scalars['Int']['output']>;
-  /** Default post format. */
+  /** Formato de la entrada por defecto. */
   defaultPostFormat?: Maybe<Scalars['String']['output']>;
-  /** Convert emoticons like :-) and :-P to graphics on display. */
+  /** Convierte emoticonos como :-) y :-P en gráficos en la pantalla. */
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };

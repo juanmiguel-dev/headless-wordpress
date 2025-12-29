@@ -982,16 +982,16 @@ enum CommentNodeIdTypeEnum {
 Moderation state for user comments. Determines whether comments are publicly visible, pending approval, or marked as spam.
 """
 enum CommentStatusEnum {
-  """Comments with the Approved status"""
+  """Comments with the Aprobado status"""
   APPROVE
 
-  """Comments with the Unapproved status"""
+  """Comments with the Rechazado status"""
   HOLD
 
   """Comments with the Spam status"""
   SPAM
 
-  """Comments with the Trash status"""
+  """Comments with the Papelera status"""
   TRASH
 }
 
@@ -2822,11 +2822,11 @@ type DeleteUserPayload {
 
 """The discussion setting type"""
 type DiscussionSettings {
-  """Allow people to submit comments on new posts."""
+  """Permitir a la gente enviar comentarios en las nuevas entradas."""
   defaultCommentStatus: String
 
   """
-  Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.
+  Permite avisos de enlaces desde otros sitios (pingbacks y trackbacks) en los nuevos artículos.
   """
   defaultPingStatus: String
 }
@@ -3085,31 +3085,33 @@ interface EnqueuedStylesheetConnectionPageInfo implements PageInfo & WPPageInfo 
 
 """The general setting type"""
 type GeneralSettings {
-  """A date format for all date strings."""
+  """Formato fecha para todas las cadenas de fecha."""
   dateFormat: String
 
-  """Site tagline."""
+  """Descripción corta del sitio."""
   description: String
 
-  """This address is used for admin purposes, like new user notification."""
+  """
+  Esta dirección se utiliza para fines de administración, por ejemplo, avisos de nuevos usuarios.
+  """
   email: String
 
-  """WordPress locale code."""
+  """Código del idioma local de WordPress."""
   language: String
 
-  """A day number of the week that the week should start on."""
+  """El número de día en el que la semana debe comenzar."""
   startOfWeek: Int
 
-  """A time format for all time strings."""
+  """Formato de hora para todas las cadenas de hora."""
   timeFormat: String
 
-  """A city in the same timezone as you."""
+  """Una ciudad en la misma zona horaria que tú."""
   timezone: String
 
-  """Site title."""
+  """Título del sitio."""
   title: String
 
-  """Site URL."""
+  """URL del sitio."""
   url: String
 }
 
@@ -8113,16 +8115,16 @@ interface Previewable {
 
 """The reading setting type"""
 type ReadingSettings {
-  """The ID of the page that should display the latest posts"""
+  """El ID de la página que debe mostrar las últimas entradas"""
   pageForPosts: Int
 
-  """The ID of the page that should be displayed on the front page"""
+  """El ID de la página que debe mostrarse en la página de inicio"""
   pageOnFront: Int
 
-  """Blog pages show at most."""
+  """Páginas de blog mostradas como máximo."""
   postsPerPage: Int
 
-  """What to show on the front page"""
+  """Qué mostrar en la página de inicio"""
   showOnFront: String
 }
 
@@ -11679,6 +11681,24 @@ type TaxonomyToTermNodeConnectionPageInfo implements PageInfo & TermNodeConnecti
   startCursor: String
 }
 
+"""The template assigned to the node"""
+type Template_ElementorAnchoCompleto implements ContentTemplate {
+  """The name of the template"""
+  templateName: String
+}
+
+"""The template assigned to the node"""
+type Template_LienzoDeElementor implements ContentTemplate {
+  """The name of the template"""
+  templateName: String
+}
+
+"""The template assigned to the node"""
+type Template_Tema implements ContentTemplate {
+  """The name of the template"""
+  templateName: String
+}
+
 """
 Base interface for taxonomy terms such as categories and tags. Terms are used to organize and classify content.
 """
@@ -12415,39 +12435,41 @@ input UpdateSettingsInput {
   """
   clientMutationId: String
 
-  """Allow people to submit comments on new posts."""
+  """Permitir a la gente enviar comentarios en las nuevas entradas."""
   discussionSettingsDefaultCommentStatus: String
 
   """
-  Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.
+  Permite avisos de enlaces desde otros sitios (pingbacks y trackbacks) en los nuevos artículos.
   """
   discussionSettingsDefaultPingStatus: String
 
-  """A date format for all date strings."""
+  """Formato fecha para todas las cadenas de fecha."""
   generalSettingsDateFormat: String
 
-  """Site tagline."""
+  """Descripción corta del sitio."""
   generalSettingsDescription: String
 
-  """This address is used for admin purposes, like new user notification."""
+  """
+  Esta dirección se utiliza para fines de administración, por ejemplo, avisos de nuevos usuarios.
+  """
   generalSettingsEmail: String
 
-  """WordPress locale code."""
+  """Código del idioma local de WordPress."""
   generalSettingsLanguage: String
 
-  """A day number of the week that the week should start on."""
+  """El número de día en el que la semana debe comenzar."""
   generalSettingsStartOfWeek: Int
 
-  """A time format for all time strings."""
+  """Formato de hora para todas las cadenas de hora."""
   generalSettingsTimeFormat: String
 
-  """A city in the same timezone as you."""
+  """Una ciudad en la misma zona horaria que tú."""
   generalSettingsTimezone: String
 
-  """Site title."""
+  """Título del sitio."""
   generalSettingsTitle: String
 
-  """Site URL."""
+  """URL del sitio."""
   generalSettingsUrl: String
 
   """"""
@@ -12468,25 +12490,25 @@ input UpdateSettingsInput {
   """"""
   helloElementorSettingsSettingsHelloElementorSettingsSkipLink: String
 
-  """The ID of the page that should display the latest posts"""
+  """El ID de la página que debe mostrar las últimas entradas"""
   readingSettingsPageForPosts: Int
 
-  """The ID of the page that should be displayed on the front page"""
+  """El ID de la página que debe mostrarse en la página de inicio"""
   readingSettingsPageOnFront: Int
 
-  """Blog pages show at most."""
+  """Páginas de blog mostradas como máximo."""
   readingSettingsPostsPerPage: Int
 
-  """What to show on the front page"""
+  """Qué mostrar en la página de inicio"""
   readingSettingsShowOnFront: String
 
-  """Default post category."""
+  """Categoria de entrada por defecto"""
   writingSettingsDefaultCategory: Int
 
-  """Default post format."""
+  """Formato de la entrada por defecto."""
   writingSettingsDefaultPostFormat: String
 
-  """Convert emoticons like :-) and :-P to graphics on display."""
+  """Convierte emoticonos como :-) y :-P en gráficos en la pantalla."""
   writingSettingsUseSmilies: Boolean
 }
 
@@ -13869,12 +13891,12 @@ interface WPPageInfo implements PageInfo {
 
 """The writing setting type"""
 type WritingSettings {
-  """Default post category."""
+  """Categoria de entrada por defecto"""
   defaultCategory: Int
 
-  """Default post format."""
+  """Formato de la entrada por defecto."""
   defaultPostFormat: String
 
-  """Convert emoticons like :-) and :-P to graphics on display."""
+  """Convierte emoticonos como :-) y :-P en gráficos en la pantalla."""
   useSmilies: Boolean
 }

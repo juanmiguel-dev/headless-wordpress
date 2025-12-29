@@ -5,14 +5,28 @@ export async function fetchGraphQL<T = any>(
   variables?: { [key: string]: any },
   headers?: { [key: string]: string },
 ): Promise<T> {
-  const { isEnabled: preview } = await draftMode();
+  let preview = false;
+  try {
+    const draftModeResult = await draftMode();
+    preview = draftModeResult.isEnabled;
+  } catch (e) {
+    // draftMode() throws an error if called outside a request scope (e.g., during build)
+    // In this case, we disable preview mode.
+    preview = false;
+  }
 
   try {
     let authHeader = "";
     if (preview) {
-      const auth = (await cookies()).get("wp_jwt")?.value;
-      if (auth) {
-        authHeader = `Bearer ${auth}`;
+      try {
+        const auth = (await cookies()).get("wp_jwt")?.value;
+        if (auth) {
+          authHeader = `Bearer ${auth}`;
+        }
+      } catch (e) {
+        // cookies() might also throw an error if called outside a request scope
+        // In this case, we proceed without authentication.
+        console.warn("Could not access cookies for draft mode authentication:", e);
       }
     }
 

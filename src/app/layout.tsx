@@ -62,6 +62,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <link rel="preconnect" href="https://www.transparenttextures.com" />
       <body className={inter.className}>
         {isEnabled && <PreviewNotice />}
         <ParallaxBackground />
