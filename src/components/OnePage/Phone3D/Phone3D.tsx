@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 // Importa el nuevo fondo sintáctico (reemplaza HeroBackground)
-import SubtleSyntaxBackground from '../SubtleSyntaxBackground';
+import HeroBackground from '../HeroBackground';
 
 const Phone3D = () => {
     const phoneRef = useRef<HTMLDivElement>(null);
