@@ -22,7 +22,7 @@ export default function Services() {
                         {/* Interactive Grid */}
                         <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/40 border border-white/40 rounded-sm overflow-hidden">
                             {/* Service 1 */}
-                            <div className="bg-black p-12 hover:bg-white/[0.02] transition-colors group">
+                            <div className="bg-black p-12 hover:bg-[#111] transition-colors group">
                                 <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">01 / Strategy</span>
                                 <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Digital Blueprints</h3>
                                 <p className="text-gray-400 font-light leading-relaxed">
@@ -31,7 +31,7 @@ export default function Services() {
                             </div>
 
                             {/* Service 2 */}
-                            <div className="bg-black p-12 hover:bg-white/[0.02] transition-colors group border-y md:border-y-0 md:border-x border-white/40">
+                            <div className="bg-black p-12 hover:bg-[#111] transition-colors group border-y md:border-y-0 md:border-x border-white/40">
                                 <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">02 / Engineering</span>
                                 <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Headless Flow</h3>
                                 <p className="text-gray-400 font-light leading-relaxed">
@@ -40,7 +40,7 @@ export default function Services() {
                             </div>
 
                             {/* Service 3 */}
-                            <div className="bg-black p-12 hover:bg-white/[0.02] transition-colors group">
+                            <div className="bg-black p-12 hover:bg-[#111] transition-colors group">
                                 <span className="text-neon-lime font-mono text-xs mb-8 block uppercase tracking-[0.3em]">03 / Velocity</span>
                                 <h3 className="text-2xl font-bold text-white uppercase mb-6 group-hover:text-neon-lime transition-colors">Core Vitals</h3>
                                 <p className="text-gray-400 font-light leading-relaxed">

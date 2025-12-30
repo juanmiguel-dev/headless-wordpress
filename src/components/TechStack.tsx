@@ -2,11 +2,10 @@
 
 import React, { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
+    
 }
 
 const TechStack = () => {
@@ -37,30 +36,6 @@ const TechStack = () => {
 
     useGSAP(() => {
         const cards = gsap.utils.toArray(".tech-card");
-
-        // 1. Entrance Stagger Animation
-        gsap.fromTo(cards,
-            {
-                opacity: 0,
-                y: 50,
-                filter: "blur(10px)",
-                scale: 0.95
-            },
-            {
-                opacity: 1,
-                y: 0,
-                filter: "blur(0px)",
-                scale: 1,
-                duration: 1.2,
-                stagger: 0.15,
-                ease: "power4.out",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                    toggleActions: "play none none none"
-                }
-            }
-        );
 
         // 2. Continuous Border Scan Animation (Subtle)
         cards.forEach((card: any, i) => {

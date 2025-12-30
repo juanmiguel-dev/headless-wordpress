@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
@@ -18,10 +18,26 @@ export default function HeaderClient({
     children
 }: HeaderClientProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) { // Adjust this value as needed
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
         <>
-            <header className={styles.header}>
+            <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
                 <Link href="/" className={styles.logoContainer}>
                     <Image
                         src="https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp"
@@ -31,7 +47,7 @@ export default function HeaderClient({
                         className={styles.logoImage}
                         priority
                     />
-                    <div className={styles.logoDot}></div>
+
                 </Link>
 
                 <div className={styles.navWrapper}>
