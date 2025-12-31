@@ -12,8 +12,8 @@ interface AnyNode {
   content?: string | null;
   slug?: string | null;
   date?: string | null;
-  uri?: string;
-  projectFields?: any;
+  uri?: string | null;
+  projectFields?: any | null;
   featuredImage?: {
     node?: {
       sourceUrl?: string;
