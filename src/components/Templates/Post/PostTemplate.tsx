@@ -7,8 +7,25 @@ import Footer from "@/components/Globals/Footer/Footer";
 
 import styles from "./PostTemplate.module.css";
 
+interface AnyNode {
+  title?: string;
+  content?: string;
+  slug?: string;
+  date?: string;
+  uri?: string;
+  projectFields?: any;
+  featuredImage?: {
+    node?: {
+      sourceUrl?: string;
+      altText?: string;
+    };
+  };
+  databaseId?: number;
+  [key: string]: any;
+}
+
 interface TemplateProps {
-  node: ContentNode;
+  node: AnyNode;
   label?: string;
 }
 
