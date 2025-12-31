@@ -8,10 +8,10 @@ import Footer from "@/components/Globals/Footer/Footer";
 import styles from "./PostTemplate.module.css";
 
 interface AnyNode {
-  title?: string;
-  content?: string;
-  slug?: string;
-  date?: string;
+  title?: string | null;
+  content?: string | null;
+  slug?: string | null;
+  date?: string | null;
   uri?: string;
   projectFields?: any;
   featuredImage?: {
