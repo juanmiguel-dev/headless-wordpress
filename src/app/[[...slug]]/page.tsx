@@ -12,6 +12,7 @@ import PostTemplate from "@/components/Templates/Post/PostTemplate";
 import { SeoQuery } from "@/queries/general/SeoQuery";
 import OnePageTemplate from "@/components/Templates/OnePage/OnePageTemplate";
 import { PortfolioQuery } from "@/queries/general/PortfolioQuery";
+import { SingleProjectQuery } from "@/queries/project/SingleProjectQuery";
 
 type Props = {
   params: { slug: string };
@@ -51,13 +52,23 @@ import { AllSlugsQuery } from "@/queries/general/AllSlugsQuery";
 
 export async function generateStaticParams() {
   try {
-    const { posts, pages } = await fetchGraphQL<{ posts: { nodes: { slug: string }[] }; pages: { nodes: { slug: string }[] } }>(
+    const { posts, pages, projects } = await fetchGraphQL<{ posts: { nodes: { slug: string }[] }; pages: { nodes: { slug: string }[] }; projects: { nodes: { slug: string }[] } }>(
       print(AllSlugsQuery),
     );
 
-    const allSlugs = [...posts.nodes, ...pages.nodes].map((node) => ({
-      slug: node.slug === "/" ? [] : node.slug.split("/"),
-    }));
+    const allSlugs = [
+      ...posts.nodes.map((node) => ({
+        slug: node.slug === "/" ? [] : node.slug.split("/"),
+      })),
+      ...pages.nodes.map((node) => ({
+        slug: node.slug === "/" ? [] : node.slug.split("/"),
+      })),
+      ...projects.nodes.map((node) => ({
+        slug: ["projects", node.slug],
+      })),
+    ];
+
+    console.log("Generated Slugs:", allSlugs);
 
     return allSlugs;
   } catch (error) {
@@ -88,6 +99,22 @@ export default async function Page({ params }: Props) {
   }
 
   if (!contentNode) return notFound();
+
+  // Check if it's a project page
+  if (paramsSlug && paramsSlug[0] === 'projects') {
+    const projectSlug = paramsSlug[1];
+    const { project } = await fetchGraphQL<{ project: ContentNode }>(
+      print(SingleProjectQuery),
+      {
+        id: projectSlug,
+        idType: "SLUG",
+      },
+    );
+
+    if (project) {
+      return <PostTemplate node={project} label="PROJECT" />;
+    }
+  }
 
   switch (contentNode.contentTypeName) {
     case "page":

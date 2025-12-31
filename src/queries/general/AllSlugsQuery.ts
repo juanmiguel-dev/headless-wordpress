@@ -12,5 +12,10 @@ export const AllSlugsQuery = gql`
         slug
       }
     }
+    projects(first: 10000) {
+      nodes {
+        slug
+      }
+    }
   }
 `;

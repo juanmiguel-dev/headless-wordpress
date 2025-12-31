@@ -1,5 +1,6 @@
 "use client";
 
+// Trivial change to force re-evaluation
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';

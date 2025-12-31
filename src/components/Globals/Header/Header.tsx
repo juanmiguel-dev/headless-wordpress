@@ -36,9 +36,18 @@ export default async function Header() {
   const menuItems = await getData();
   const nodes = (menuItems.nodes as MenuItem[] || []).filter((item): item is MenuItem => !!item && !!item.uri && !!item.label);
 
+  const augmentedNodes: MenuItem[] = [
+    ...nodes,
+    {
+      uri: "/projects",
+      label: "Projects",
+      target: "_self",
+    } as MenuItem,
+  ];
+
   return (
-    <HeaderClient menuItems={nodes}>
-      <Navigation menuItems={nodes} />
+    <HeaderClient menuItems={augmentedNodes}>
+      <Navigation menuItems={augmentedNodes} />
     </HeaderClient>
   );
 }
