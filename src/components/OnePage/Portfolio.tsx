@@ -4,12 +4,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-interface Post {
+interface Project {
     id: string;
     title: string;
     excerpt: string;
     slug: string;
     date: string;
+    projectFields?: {
+        framework?: string;
+        language?: string;
+        performanceScore?: number;
+        websiteurl?: string;
+    };
     featuredImage?: {
         node: {
             sourceUrl: string;
@@ -19,10 +25,10 @@ interface Post {
 }
 
 interface PortfolioProps {
-    posts: Post[];
+    projects: Project[];
 }
 
-export default function Portfolio({ posts }: PortfolioProps) {
+export default function Portfolio({ projects }: PortfolioProps) {
     return (
         <section id="portfolio" className="bg-black py-40 border-t border-white/40 relative overflow-hidden">
             {/* Background Ornaments */}
@@ -32,9 +38,9 @@ export default function Portfolio({ posts }: PortfolioProps) {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="mb-24 flex flex-col md:flex-row items-end justify-between gap-8">
                     <div>
-                        <span className="text-neon-lime font-mono text-xs uppercase tracking-[0.5em] mb-4 block">Fundamentals</span>
+                        <span className="text-neon-lime font-mono text-xs uppercase tracking-[0.5em] mb-4 block">Portfolio</span>
                         <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
-                            & Concepts<br />
+                            & Projects<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-lime to-white/50 italic font-serif lowercase font-light ml-4">Selected.</span>
                         </h2>
                     </div>
@@ -42,9 +48,9 @@ export default function Portfolio({ posts }: PortfolioProps) {
                 </div>
 
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-2">
-                    {posts.map((post, index) => (
+                    {projects.map((project, index) => (
                         <motion.div
-                            key={post.id}
+                            key={project.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -54,9 +60,15 @@ export default function Portfolio({ posts }: PortfolioProps) {
                             {/* Card Header / Metadata */}
                             <div className="flex items-center justify-between px-6 py-4 border-b border-white/40 bg-black">
                                 <div className="flex items-center gap-4">
-                                    <span className="text-[10px] font-mono text-neon-lime opacity-70 uppercase tracking-widest">Post ID: {post.id.slice(0, 8)}</span>
+                                    <span className="text-[10px] font-mono text-neon-lime opacity-70 uppercase tracking-widest">PRJ_ID: {project.id.slice(0, 8)}</span>
                                     <span className="h-1 w-1 rounded-full bg-white/50" />
-                                    <span className="text-[10px] font-mono text-gray-200 uppercase tracking-widest">{new Date(post.date).getFullYear()}</span>
+                                    <span className="text-[10px] font-mono text-gray-200 uppercase tracking-widest">{new Date(project.date).getFullYear()}</span>
+                                    {project.projectFields?.framework && (
+                                        <>
+                                            <span className="h-1 w-1 rounded-full bg-white/50" />
+                                            <span className="text-[10px] font-mono text-orange-500 uppercase tracking-widest">{project.projectFields.framework}</span>
+                                        </>
+                                    )}
                                 </div>
                                 <div className="flex gap-1">
                                     <div className="w-1 h-1 rounded-full bg-neon-lime/40" />
@@ -67,10 +79,10 @@ export default function Portfolio({ posts }: PortfolioProps) {
                             <div className="flex flex-col md:flex-row flex-1 min-h-[350px]">
                                 {/* Image Container */}
                                 <div className="relative w-full md:w-1/2 overflow-hidden bg-black border-r border-white/40">
-                                    {post.featuredImage?.node?.sourceUrl ? (
+                                    {project.featuredImage?.node?.sourceUrl ? (
                                         <Image
-                                            src={post.featuredImage.node.sourceUrl}
-                                            alt={post.featuredImage.node.altText || post.title}
+                                            src={project.featuredImage.node.sourceUrl}
+                                            alt={project.featuredImage.node.altText || project.title}
                                             fill
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                             unoptimized={true}
@@ -91,23 +103,23 @@ export default function Portfolio({ posts }: PortfolioProps) {
                                     {/* Glitch Title */}
                                     <div>
                                         <h3 className="text-3xl font-black uppercase tracking-tighter text-white mb-6 leading-[0.9] group-hover:text-neon-lime transition-colors duration-300">
-                                            <Link href={`/${post.slug}`}>
-                                                {post.title}
+                                            <Link href={`/projects/${project.slug}`}>
+                                                {project.title}
                                             </Link>
                                         </h3>
                                         <div
                                             className="text-gray-200 text-sm font-light leading-relaxed mb-8 line-clamp-3"
-                                            dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                                            dangerouslySetInnerHTML={{ __html: project.excerpt }}
                                         />
                                     </div>
 
                                     {/* Card Footer */}
                                     <div className="flex items-center justify-between mt-auto">
                                         <Link
-                                            href={`/${post.slug}`}
+                                            href={`/projects/${project.slug}`}
                                             className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/50 hover:text-neon-lime transition-all flex items-center gap-2 group/btn"
                                         >
-                                            View Entry <span className="group-hover/btn:translate-x-1 transition-transform text-neon-lime">→</span>
+                                            View Project <span className="group-hover/btn:translate-x-1 transition-transform text-neon-lime">→</span>
                                         </Link>
                                         <span className="text-[8px] font-mono text-white/40 uppercase tracking-widest hidden md:block select-none">
                                             0x{index.toString(16).padStart(2, '0')} // ARCHIVE_0{index + 1}

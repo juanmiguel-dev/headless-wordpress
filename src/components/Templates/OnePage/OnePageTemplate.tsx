@@ -7,15 +7,15 @@ import Footer from "@/components/Globals/Footer/Footer";
 
 interface OnePageTemplateProps {
     node?: ContentNode; // Optional, in case we want to pass data later
-    posts?: any[];
+    projects?: any[];
 }
 
-export default function OnePageTemplate({ node, posts = [] }: OnePageTemplateProps) {
+export default function OnePageTemplate({ node, projects = [] }: OnePageTemplateProps) {
     return (
         <div className="flex flex-col min-h-screen">
             <Hero />
             <Services />
-            <Portfolio posts={posts} />
+            <Portfolio projects={projects} />
             <Phone3D />
             <Footer />
         </div>

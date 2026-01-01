@@ -12,6 +12,7 @@ import PostTemplate from "@/components/Templates/Post/PostTemplate";
 import { SeoQuery } from "@/queries/general/SeoQuery";
 import OnePageTemplate from "@/components/Templates/OnePage/OnePageTemplate";
 import { PortfolioQuery } from "@/queries/general/PortfolioQuery";
+import { ProjectsQuery } from "@/queries/general/ProjectsQuery";
 import { SingleProjectQuery } from "@/queries/project/SingleProjectQuery";
 
 type Props = {
@@ -90,12 +91,12 @@ export default async function Page({ params }: Props) {
     },
   );
 
-  let posts = [];
+  let projects = [];
   if (slug === "/") {
-    const portfolioData = await fetchGraphQL<{ posts: { nodes: any[] } }>(
-      print(PortfolioQuery)
+    const projectsData = await fetchGraphQL<{ projects: { nodes: any[] } }>(
+      print(ProjectsQuery)
     );
-    posts = portfolioData?.posts?.nodes || [];
+    projects = projectsData?.projects?.nodes || [];
   }
 
   if (!contentNode) return notFound();
@@ -119,7 +120,7 @@ export default async function Page({ params }: Props) {
   switch (contentNode.contentTypeName) {
     case "page":
       if (slug === "/") {
-        return <OnePageTemplate node={contentNode} posts={posts} />;
+        return <OnePageTemplate node={contentNode} projects={projects} />;
       }
       return <PageTemplate node={contentNode} />;
     case "post":
