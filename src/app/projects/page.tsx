@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
               <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-6">
                 PROJECTS<br/>
                 <span className="text-transparent stroke-white stroke-1 opacity-50" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>
-                  ARCHIVE
+                  2026
                 </span>
               </h1>
             </div>
