@@ -14,7 +14,7 @@ export const ProjectsQuery = gql`
           framework
           language
           performanceScore
-          websiteUrl
+          websiteurl
         }
         featuredImage {
           node {
