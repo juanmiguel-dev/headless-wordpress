@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export const ProjectsQuery = gql`
   query ProjectsQuery {
-    projects(first: 6, where: { orderby: { field: DATE, order: DESC } }) {
+    projects(first: 10, where: { orderby: { field: DATE, order: DESC } }) {
       nodes {
         id
         title

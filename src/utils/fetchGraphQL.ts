@@ -4,6 +4,7 @@ export async function fetchGraphQL<T = any>(
   query: string,
   variables?: { [key: string]: any },
   headers?: { [key: string]: string },
+  revalidate: number | false = 60,
 ): Promise<T> {
   let preview = false;
   try {
@@ -51,6 +52,7 @@ export async function fetchGraphQL<T = any>(
         cache: preview ? "no-cache" : "default",
         next: {
           tags: ["wordpress"],
+          revalidate: preview ? 0 : revalidate,
         },
       },
     );
