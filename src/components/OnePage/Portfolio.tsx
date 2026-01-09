@@ -76,7 +76,7 @@ export default function Portfolio({ projects }: PortfolioProps) {
                                 </div>
                             </div>
 
-                            <div className="flex flex-col md:flex-row flex-1 min-h-[350px]">
+                            <div className="flex flex-col md:flex-row flex-1 min-h-[220px]">
                                 {/* Image Container */}
                                 <div className="relative w-full md:w-1/2 overflow-hidden bg-black border-r border-white/40">
                                     {project.featuredImage?.node?.sourceUrl ? (

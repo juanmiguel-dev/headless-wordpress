@@ -55,11 +55,11 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
             initial="hidden"
             animate="visible"
             variants={cardVariants}
-            className="group relative aspect-[4/5] md:aspect-[3/4] cursor-pointer"
+            className="group relative aspect-[16/10] md:aspect-[16/7] cursor-pointer"
             onMouseEnter={() => setHoveredId(project.databaseId)}
             onMouseLeave={() => setHoveredId(null)}
           >
-            <Link href={`/projects/${project.slug}`} className="block w-full h-full h-full relative overflow-hidden bg-zinc-900 border border-white/10 group-hover:border-neon-lime/50 transition-colors duration-500">
+            <Link href={`/projects/${project.slug}`} className="block w-full h-full relative overflow-hidden bg-zinc-900 border border-white/10 group-hover:border-neon-lime/50 transition-colors duration-500">
               
               {/* Image Container */}
               <div className="absolute inset-0 overflow-hidden">
