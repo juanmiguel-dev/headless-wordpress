@@ -61,7 +61,7 @@ export default async function PostTemplate({ node, label }: TemplateProps) {
           <div className="grid md:grid-cols-12 gap-12">
             <div className="md:col-span-8">
               <div
-                className="max-w-none text-gray-300 text-base leading-relaxed"
+                className={styles.content}
                 dangerouslySetInnerHTML={{ __html: node.content || "" }}
               />
             </div>
