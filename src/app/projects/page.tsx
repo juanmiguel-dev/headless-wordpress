@@ -33,16 +33,7 @@ export default async function ProjectsPage() {
                 </span>
               </h1>
             </div>
-            
-            <div className="max-w-md pb-2">
-              <p className="font-mono text-xs md:text-sm text-gray-400 leading-relaxed border-l-2 border-neon-lime pl-4">
-                Una colección curada de implementaciones digitales, arquitectura de software y experimentos visuales.
-                <br/>
-                <span className="text-neon-lime mt-2 block">
-                  Total Entries: {projects?.nodes?.length || 0}
-                </span>
-              </p>
-            </div>
+         
           </div>
         </div>
 
