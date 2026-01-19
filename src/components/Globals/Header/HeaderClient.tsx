@@ -42,8 +42,8 @@ export default function HeaderClient({
                     <Image
                         src="https://v2.pachadev.com/wp-content/uploads/2025/12/logo-pachadev.webp"
                         alt="Pachadev Logo"
-                        width={140}
-                        height={40}
+                        width={200}
+                        height={60}
                         className={styles.logoImage}
                         priority
                     />
