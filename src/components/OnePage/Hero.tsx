@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import ParallaxSection from "../Globals/Parallax/ParallaxSection";
 
 export default function Hero() {
+    const scrollToServices = () => {
+        const services = document.getElementById('services');
+        if (services) {
+            services.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 py-24 text-center">
             {/* Background Effects */}
@@ -28,6 +38,26 @@ export default function Hero() {
 
                 </div>
             </ParallaxSection>
+
+            {/* Mobile Scroll Indicator */}
+            <motion.div 
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 cursor-pointer md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                onClick={scrollToServices}
+            >
+                <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="flex flex-col items-center gap-2"
+                >
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neon-lime/70">Scroll</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="#DFFF00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </motion.div>
+            </motion.div>
         </section>
     );
 }
