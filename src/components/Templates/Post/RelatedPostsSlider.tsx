@@ -21,9 +21,10 @@ interface PostNode {
 interface RelatedPostsSliderProps {
     posts: PostNode[];
     currentPostId: number;
+    basePath?: string;
 }
 
-export default function RelatedPostsSlider({ posts, currentPostId }: RelatedPostsSliderProps) {
+export default function RelatedPostsSlider({ posts, currentPostId, basePath = "" }: RelatedPostsSliderProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Filter out the current post
@@ -64,7 +65,7 @@ export default function RelatedPostsSlider({ posts, currentPostId }: RelatedPost
                         transition={{ delay: index * 0.1 }}
                         className="flex-shrink-0 w-[300px] md:w-[450px] snap-center group"
                     >
-                        <Link href={`/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-white/[0.02] border border-white/5">
+                        <Link href={`${basePath}/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-white/[0.02] border border-white/5">
                             {post.featuredImage?.node?.sourceUrl && (
                                 <Image
                                     src={post.featuredImage.node.sourceUrl}

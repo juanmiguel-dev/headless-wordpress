@@ -104,16 +104,26 @@ export default async function Page({ params }: Props) {
   // Check if it's a project page
   if (paramsSlug && paramsSlug[0] === 'projects') {
     const projectSlug = paramsSlug[1];
-    const { project } = await fetchGraphQL<{ project: ContentNode }>(
-      print(SingleProjectQuery),
-      {
-        id: projectSlug,
-        idType: "SLUG",
-      },
-    );
+    
+    // Fetch project data and other projects for slider
+    const [projectData, projectsData] = await Promise.all([
+      fetchGraphQL<{ project: ContentNode }>(
+        print(SingleProjectQuery),
+        {
+          id: projectSlug,
+          idType: "SLUG",
+        },
+      ),
+      fetchGraphQL<{ projects: { nodes: any[] } }>(
+        print(ProjectsQuery)
+      )
+    ]);
+
+    const project = projectData?.project;
+    const relatedProjects = projectsData?.projects?.nodes || [];
 
     if (project) {
-      return <PostTemplate node={project} label="PROJECT" />;
+      return <PostTemplate node={project} label="PROJECT" projects={relatedProjects} />;
     }
   }
 

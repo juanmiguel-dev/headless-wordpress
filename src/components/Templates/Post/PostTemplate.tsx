@@ -4,6 +4,7 @@ import * as motion from "framer-motion/client";
 
 import { ContentNode } from "@/gql/graphql";
 import Footer from "@/components/Globals/Footer/Footer";
+import RelatedPostsSlider from "./RelatedPostsSlider";
 
 import styles from "./PostTemplate.module.css";
 
@@ -27,9 +28,10 @@ interface AnyNode {
 interface TemplateProps {
   node: AnyNode;
   label?: string;
+  projects?: AnyNode[];
 }
 
-export default async function PostTemplate({ node, label }: TemplateProps) {
+export default async function PostTemplate({ node, label, projects = [] }: TemplateProps) {
   if (!node) return null;
 
   if (label && label.toUpperCase() === "PROJECT") {
@@ -125,6 +127,16 @@ export default async function PostTemplate({ node, label }: TemplateProps) {
             </div>
           </div>
         </div>
+
+        {/* Related Projects Slider */}
+        {projects.length > 0 && (
+          <RelatedPostsSlider 
+            posts={projects as any[]} 
+            currentPostId={node.databaseId || 0} 
+            basePath="/projects"
+          />
+        )}
+
         <Footer />
       </>
     );
