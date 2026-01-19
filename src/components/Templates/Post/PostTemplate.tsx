@@ -49,6 +49,12 @@ export default async function PostTemplate({ node, label }: TemplateProps) {
       <>
         <div className="max-w-6xl mx-auto px-6 py-20 font-sans min-h-screen">
           <div className="mb-16 border-b border-white/10 pb-8">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-neon-lime hover:text-black border border-neon-lime/60 hover:border-neon-lime px-3 py-2 rounded-full bg-transparent hover:bg-neon-lime transition-colors mb-6"
+            >
+              <span>← BACK TO PROJECTS</span>
+            </Link>
             <h1 className="text-4xl md:text-7xl font-black tracking-tighter mb-4 text-white uppercase">
               {node.title}
             </h1>
