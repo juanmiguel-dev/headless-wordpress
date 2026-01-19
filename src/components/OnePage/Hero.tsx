@@ -32,7 +32,40 @@ export default function Hero() {
 
                     <p className="mx-auto max-w-2xl text-gray-400 text-lg md:text-xl leading-relaxed font-light mt-12">
                         Deconstructing the traditional web. Building high-performance
-                        ecosystems with <span className="text-white font-medium">Next.js</span> + <span className="text-white font-medium">WordPress</span>.
+                        ecosystems with <motion.span 
+                            animate={{ 
+                                opacity: [1, 0.8, 1, 0.5, 1, 0.9, 1],
+                                textShadow: [
+                                    "0 0 0px rgba(255,255,255,0)",
+                                    "0 0 10px rgba(223, 255, 0, 0.5)",
+                                    "0 0 0px rgba(255,255,255,0)"
+                                ]
+                            }}
+                            transition={{ 
+                                duration: 2.5, 
+                                repeat: Infinity, 
+                                ease: "linear",
+                                times: [0, 0.2, 0.4, 0.6, 0.8, 0.9, 1]
+                            }}
+                            className="text-white font-medium inline-block"
+                        >Next.js</motion.span> + <motion.span 
+                            animate={{ 
+                                opacity: [1, 0.7, 1, 0.4, 1, 0.8, 1],
+                                textShadow: [
+                                    "0 0 0px rgba(255,255,255,0)",
+                                    "0 0 10px rgba(223, 255, 0, 0.5)",
+                                    "0 0 0px rgba(255,255,255,0)"
+                                ]
+                            }}
+                            transition={{ 
+                                duration: 3, 
+                                repeat: Infinity, 
+                                ease: "linear",
+                                delay: 0.5,
+                                times: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1]
+                            }}
+                            className="text-white font-medium inline-block"
+                        >WordPress</motion.span>.
                     </p>
 
 
